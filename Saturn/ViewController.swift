@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    @IBOutlet weak var blurredCameraUIView: UIView!
+    @IBOutlet weak var blurred: UIImageView!
+    @IBOutlet weak var squareCanvas: UIImageView!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -18,8 +19,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        captureSession.sessionPreset = AVCaptureSessionPresetLow
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
         let devices = AVCaptureDevice.devices()
         
         for device in devices {
@@ -33,7 +36,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     func configureDevice() {
@@ -55,15 +57,25 @@ class ViewController: UIViewController {
             println("error: \(err?.localizedDescription)")
         }
         
+        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        visualEffectView.frame = blurred.bounds
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+
+        blurred.layer.addSublayer(previewLayer)
+        blurred.addSubview(visualEffectView)
+        blurred.clipsToBounds = true
         
-        blurredCameraUIView.layer.addSublayer(previewLayer)
-        blurredCameraUIView.layer.frame.size.width = blurredCameraUIView.layer.frame.size.width
-        blurredCameraUIView.layer.frame.size.height = blurredCameraUIView.layer.frame.size.height
-        blurredCameraUIView.layer.position.x = CGFloat(50)
-        blurredCameraUIView.layer.position.y = CGFloat(0)
+//        squareCanvas.layer.addSublayer(previewLayer)
+        squareCanvas.clipsToBounds = true
         
-        previewLayer?.frame = blurredCameraUIView.layer.frame
+        previewLayer?.frame = blurred.layer.frame
+        previewLayer?.position = CGPoint(
+            x : blurred.frame.size.width / 2,
+            y : 0
+        )
+        previewLayer?.frame.size.height = blurred.frame.size.height * 2
+
         captureSession.startRunning()
     }
     
