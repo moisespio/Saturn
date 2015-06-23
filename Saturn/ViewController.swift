@@ -47,7 +47,53 @@ class ViewController: UIViewController {
         
     }
     
+    func maskQRCode () {
+        var blur: UIView!
+
+        blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Light))
+        
+        blur.frame = view.frame
+        blur.userInteractionEnabled = false
+        view.addSubview(blur)
+        
+        let squareSize: CGFloat = 140
+        
+        let path = UIBezierPath (
+            roundedRect: blur.frame,
+            cornerRadius: 0)
+        
+        let square = UIBezierPath (
+            roundedRect: CGRect (
+                origin: CGPoint (
+                    x: blur.center.x - squareSize / 2,
+                    y : 100
+                ),
+                size: CGSize (
+                    width: squareSize,
+                    height: squareSize
+                )
+            ),
+            cornerRadius: 0
+        )
+        
+        path.appendPath(square)
+        path.usesEvenOddFillRule = true
+        
+        let maskLayer = CAShapeLayer ()
+        maskLayer.path = path.CGPath
+        maskLayer.fillRule = kCAFillRuleEvenOdd
+        
+        let borderLayer = CAShapeLayer ()
+        borderLayer.path = square.CGPath
+        borderLayer.strokeColor = UIColor.whiteColor().CGColor
+        borderLayer.lineWidth = 5
+        blur.layer.addSublayer(borderLayer)
+        
+        blur.layer.mask = maskLayer
+    }
+    
     func beginSession() {
+        maskQRCode()
         configureDevice()
         
         var err : NSError? = nil
@@ -57,13 +103,14 @@ class ViewController: UIViewController {
             println("error: \(err?.localizedDescription)")
         }
         
-        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
-        visualEffectView.frame = blurred.bounds
+//        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+//        visualEffectView.frame = blurred.bounds
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer?.opacity = 0.3
 
         blurred.layer.addSublayer(previewLayer)
-        blurred.addSubview(visualEffectView)
+//        blurred.addSubview(visualEffectView)
         blurred.clipsToBounds = true
         
 //        squareCanvas.layer.addSublayer(previewLayer)

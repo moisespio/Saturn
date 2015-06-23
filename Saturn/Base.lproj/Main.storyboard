@@ -24,7 +24,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYr-zw-eG1">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.66800904370000003" blue="0.30736994099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12156862745098039" green="0.11764705882352941" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uYr-zw-eG1" secondAttribute="height" multiplier="1:1" id="jNh-pb-aqt"/>
                                         </constraints>
