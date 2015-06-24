@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        var navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.barTintColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 1.0)
+        var navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.barTintColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 1.0)
         
         let lblSaturn : UILabel = UILabel(frame: CGRectMake(26, 27, 100, 70))
         lblSaturn.text = "SATURN"
         lblSaturn.backgroundColor = UIColor.redColor()
         
-        navigationBarAppearace.addSubview(lblSaturn)
+        navigationBarAppearance.addSubview(lblSaturn)
         
         Parse.enableLocalDatastore()
         
