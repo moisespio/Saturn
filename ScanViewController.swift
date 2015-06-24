@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var camera: UIImageView!
+    @IBOutlet weak var blurView: UIView!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -105,14 +106,15 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func maskQRCode () {
         var blur: UIView!
+        blurView.clipsToBounds = true
 
-        blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Light))
-        blur.frame = view.frame
+        blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Dark))
+        blur.frame = blurView.frame
         blur.userInteractionEnabled = false
 
-        camera.addSubview(blur)
+        blurView.addSubview(blur)
         
-        let squareSize: CGFloat = 140
+        let squareSize: CGFloat = 200
         
         let path = UIBezierPath (
             roundedRect: blur.frame,
@@ -129,7 +131,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     height: squareSize
                 )
             ),
-            cornerRadius: 5
+            cornerRadius: 10
         )
         
         path.appendPath(square)
@@ -144,7 +146,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
         borderLayer.path = square.CGPath
         borderLayer.strokeColor = UIColor.whiteColor().CGColor
-        borderLayer.lineWidth = 5
+        borderLayer.lineWidth = 20
         blur.layer.addSublayer(borderLayer)
         
         blur.layer.mask = maskLayer

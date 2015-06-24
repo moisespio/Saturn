@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scan View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScanViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,16 +34,32 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWB-pk-HFy">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="uYr-zw-eG1" firstAttribute="leading" secondItem="G6c-0P-jlI" secondAttribute="leading" id="BC5-ga-zBd"/>
+                                    <constraint firstItem="xWB-pk-HFy" firstAttribute="leading" secondItem="G6c-0P-jlI" secondAttribute="leading" id="NBr-1v-Efq"/>
                                     <constraint firstAttribute="bottom" secondItem="uYr-zw-eG1" secondAttribute="bottom" id="Nbs-dq-5a9"/>
                                     <constraint firstItem="uYr-zw-eG1" firstAttribute="top" secondItem="G6c-0P-jlI" secondAttribute="top" id="Qfu-th-Wdm"/>
+                                    <constraint firstItem="xWB-pk-HFy" firstAttribute="width" secondItem="uYr-zw-eG1" secondAttribute="width" id="bmf-sF-qVG"/>
+                                    <constraint firstItem="xWB-pk-HFy" firstAttribute="leading" secondItem="uYr-zw-eG1" secondAttribute="trailing" constant="-530" id="cco-VA-osI"/>
                                     <constraint firstAttribute="width" secondItem="G6c-0P-jlI" secondAttribute="height" multiplier="1:1" id="gy0-9Z-nfa"/>
                                     <constraint firstAttribute="trailing" secondItem="uYr-zw-eG1" secondAttribute="trailing" id="hJs-OS-tCg"/>
+                                    <constraint firstAttribute="trailing" secondItem="xWB-pk-HFy" secondAttribute="trailing" id="orh-SR-42T"/>
+                                    <constraint firstItem="xWB-pk-HFy" firstAttribute="top" secondItem="G6c-0P-jlI" secondAttribute="top" id="qSD-GZ-6Lk"/>
+                                    <constraint firstItem="xWB-pk-HFy" firstAttribute="height" secondItem="uYr-zw-eG1" secondAttribute="height" id="qd8-Ib-1Qp"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cco-VA-osI"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <animations/>
@@ -56,6 +72,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cyG-Ql-kvw"/>
                     <connections>
+                        <outlet property="blurView" destination="xWB-pk-HFy" id="iEo-NS-h9P"/>
                         <outlet property="camera" destination="uYr-zw-eG1" id="c3C-gq-0DI"/>
                     </connections>
                 </viewController>

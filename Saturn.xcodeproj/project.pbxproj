@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		809946D51B3ADCE10054A88D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809946D41B3ADCE10054A88D /* ScanViewController.swift */; };
 		80FBFAEE1B383F0B0050AD95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */; };
-		80FBFAF01B383F0B0050AD95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBFAEF1B383F0B0050AD95 /* ViewController.swift */; };
 		80FBFAF31B383F0B0050AD95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FBFAF11B383F0B0050AD95 /* Main.storyboard */; };
 		80FBFAF51B383F0B0050AD95 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FBFAF41B383F0B0050AD95 /* Images.xcassets */; };
 		80FBFAF81B383F0B0050AD95 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FBFAF61B383F0B0050AD95 /* LaunchScreen.xib */; };
@@ -42,10 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		809946D41B3ADCE10054A88D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = ../ScanViewController.swift; sourceTree = "<group>"; };
 		80FBFAE81B383F0B0050AD95 /* Saturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FBFAEC1B383F0B0050AD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80FBFAEF1B383F0B0050AD95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80FBFAF21B383F0B0050AD95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80FBFAF41B383F0B0050AD95 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		80FBFAF71B383F0B0050AD95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				EFABD4941B3AE2EF006DA439 /* Fonts */,
 				D5A949CC1B39934F00E81E71 /* Framework */,
 				80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */,
-				80FBFAEF1B383F0B0050AD95 /* ViewController.swift */,
+				809946D41B3ADCE10054A88D /* ScanViewController.swift */,
 				80FBFAF11B383F0B0050AD95 /* Main.storyboard */,
 				80FBFAF41B383F0B0050AD95 /* Images.xcassets */,
 				80FBFAF61B383F0B0050AD95 /* LaunchScreen.xib */,
@@ -292,8 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80FBFAF01B383F0B0050AD95 /* ViewController.swift in Sources */,
 				80FBFAEE1B383F0B0050AD95 /* AppDelegate.swift in Sources */,
+				809946D51B3ADCE10054A88D /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
