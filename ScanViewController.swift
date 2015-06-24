@@ -36,8 +36,25 @@ class ScanViewController: UIViewController {
                     
                     if captureDevice != nil {
                         beginSession()
+                        configQRCode()
                     }
                 }
+            }
+        }
+    }
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            println("No qr code is detected")
+            return
+        }
+        
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            if metadataObj.stringValue != nil {
+                println(metadataObj.stringValue)
             }
         }
     }
@@ -70,11 +87,6 @@ class ScanViewController: UIViewController {
         captureSession.startRunning()
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
@@ -82,6 +94,14 @@ class ScanViewController: UIViewController {
             device.unlockForConfiguration()
         }
         
+    }
+    
+    func configQRCode() {
+        let captureMetadataOutput = AVCaptureMetadataOutput()
+        captureSession.addOutput(captureMetadataOutput)
+        
+        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
     }
     
     func maskQRCode () {
@@ -132,6 +152,8 @@ class ScanViewController: UIViewController {
         blur.layer.mask = maskLayer
     }
 
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
 
