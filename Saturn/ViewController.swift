@@ -10,8 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    @IBOutlet weak var blurred: UIImageView!
-    @IBOutlet weak var squareCanvas: UIImageView!
+    @IBOutlet weak var camera: UIImageView!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -22,6 +21,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        searchForDevices()
+    }
+    
+    func searchForDevices() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         let devices = AVCaptureDevice.devices()
         
@@ -38,6 +41,39 @@ class ViewController: UIViewController {
         }
     }
     
+    func beginSession() {
+        maskQRCode()
+        configureDevice()
+        
+        var err : NSError? = nil
+        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
+        
+        if err != nil {
+            println("error: \(err?.localizedDescription)")
+        }
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer?.opacity = 0.3
+        
+        camera.layer.addSublayer(previewLayer)
+        camera.clipsToBounds = true
+        
+        previewLayer?.frame = camera.layer.frame
+        previewLayer?.position = CGPoint(
+            x : camera.frame.size.width / 2,
+            y : 0
+        )
+        
+        previewLayer?.frame.size.height = camera.frame.size.height * 2
+        
+        captureSession.startRunning()
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
@@ -51,10 +87,10 @@ class ViewController: UIViewController {
         var blur: UIView!
 
         blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Light))
-        
         blur.frame = view.frame
         blur.userInteractionEnabled = false
-        view.addSubview(blur)
+
+        camera.addSubview(blur)
         
         let squareSize: CGFloat = 140
         
@@ -73,62 +109,25 @@ class ViewController: UIViewController {
                     height: squareSize
                 )
             ),
-            cornerRadius: 0
+            cornerRadius: 5
         )
         
         path.appendPath(square)
         path.usesEvenOddFillRule = true
         
         let maskLayer = CAShapeLayer ()
+
         maskLayer.path = path.CGPath
         maskLayer.fillRule = kCAFillRuleEvenOdd
         
         let borderLayer = CAShapeLayer ()
+
         borderLayer.path = square.CGPath
         borderLayer.strokeColor = UIColor.whiteColor().CGColor
         borderLayer.lineWidth = 5
         blur.layer.addSublayer(borderLayer)
         
         blur.layer.mask = maskLayer
-    }
-    
-    func beginSession() {
-        maskQRCode()
-        configureDevice()
-        
-        var err : NSError? = nil
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-        
-        if err != nil {
-            println("error: \(err?.localizedDescription)")
-        }
-        
-//        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
-//        visualEffectView.frame = blurred.bounds
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.opacity = 0.3
-
-        blurred.layer.addSublayer(previewLayer)
-//        blurred.addSubview(visualEffectView)
-        blurred.clipsToBounds = true
-        
-//        squareCanvas.layer.addSublayer(previewLayer)
-        squareCanvas.clipsToBounds = true
-        
-        previewLayer?.frame = blurred.layer.frame
-        previewLayer?.position = CGPoint(
-            x : blurred.frame.size.width / 2,
-            y : 0
-        )
-        previewLayer?.frame.size.height = blurred.frame.size.height * 2
-
-        captureSession.startRunning()
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
 

@@ -98,17 +98,6 @@
 		80FBFADF1B383F0B0050AD95 = {
 			isa = PBXGroup;
 			children = (
-				D50B87A61B3994310059F0AF /* libsqlite3.dylib */,
-				D50B87A41B3994280059F0AF /* libz.dylib */,
-				D50B87A21B3994220059F0AF /* SystemConfiguration.framework */,
-				D50B87A01B39941D0059F0AF /* StoreKit.framework */,
-				D50B879E1B3994180059F0AF /* Security.framework */,
-				D50B879C1B3994130059F0AF /* QuartzCore.framework */,
-				D50B879A1B39940D0059F0AF /* MobileCoreServices.framework */,
-				D50B87981B3994070059F0AF /* CoreLocation.framework */,
-				D50B87961B3994020059F0AF /* CoreGraphics.framework */,
-				D50B87941B3993FD0059F0AF /* CFNetwork.framework */,
-				D50B87921B3993F80059F0AF /* AudioToolbox.framework */,
 				80FBFAEA1B383F0B0050AD95 /* Saturn */,
 				80FBFB001B383F0B0050AD95 /* SaturnTests */,
 				80FBFAE91B383F0B0050AD95 /* Products */,
@@ -166,6 +155,17 @@
 		D5A949CC1B39934F00E81E71 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				D50B87A61B3994310059F0AF /* libsqlite3.dylib */,
+				D50B87A41B3994280059F0AF /* libz.dylib */,
+				D50B87A21B3994220059F0AF /* SystemConfiguration.framework */,
+				D50B87A01B39941D0059F0AF /* StoreKit.framework */,
+				D50B879E1B3994180059F0AF /* Security.framework */,
+				D50B879C1B3994130059F0AF /* QuartzCore.framework */,
+				D50B879A1B39940D0059F0AF /* MobileCoreServices.framework */,
+				D50B87981B3994070059F0AF /* CoreLocation.framework */,
+				D50B87961B3994020059F0AF /* CoreGraphics.framework */,
+				D50B87941B3993FD0059F0AF /* CFNetwork.framework */,
+				D50B87921B3993F80059F0AF /* AudioToolbox.framework */,
 				D50B878E1B3993DF0059F0AF /* Bolts.framework */,
 				D50B878F1B3993DF0059F0AF /* Parse.framework */,
 			);
