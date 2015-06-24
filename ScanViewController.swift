@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController {
+class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var blurView: UIView!
 
