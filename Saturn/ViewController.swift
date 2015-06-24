@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var camera: UIImageView!
 
     let captureSession = AVCaptureSession()
@@ -35,8 +35,25 @@ class ViewController: UIViewController {
                     
                     if captureDevice != nil {
                         beginSession()
+                        configQRCode()
                     }
                 }
+            }
+        }
+    }
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            println("No qr code is detected")
+            return
+        }
+        
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            if metadataObj.stringValue != nil {
+                println(metadataObj.stringValue)
             }
         }
     }
@@ -69,11 +86,6 @@ class ViewController: UIViewController {
         captureSession.startRunning()
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
@@ -81,6 +93,14 @@ class ViewController: UIViewController {
             device.unlockForConfiguration()
         }
         
+    }
+    
+    func configQRCode() {
+        let captureMetadataOutput = AVCaptureMetadataOutput()
+        captureSession.addOutput(captureMetadataOutput)
+        
+        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
     }
     
     func maskQRCode () {
@@ -130,6 +150,8 @@ class ViewController: UIViewController {
         blur.layer.mask = maskLayer
     }
 
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
 
