@@ -25,6 +25,18 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         searchForDevices()
     }
     
+    func addLabelToView(view: UIView) {
+        var label = UILabel(frame: CGRectMake(0, 0, 240, 80))
+        label.center = CGPointMake(camera.frame.size.width / 2, camera.frame.size.height - 30)
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 2
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.font = UIFont(name: "SanFranciscoText-Regular", size: 16)
+        label.text = "Aponte sua câmera para o QRCode localizado no sensor"
+        label.textColor = UIColor.whiteColor()
+        view.addSubview(label)
+    }
+    
     func searchForDevices() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         let devices = AVCaptureDevice.devices()
@@ -37,6 +49,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                     if captureDevice != nil {
                         beginSession()
                         configQRCode()
+                        addLabelToView(blurView)
                     }
                 }
             }
@@ -124,7 +137,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             roundedRect: CGRect (
                 origin: CGPoint (
                     x: blur.center.x - squareSize / 2,
-                    y : 100
+                    y : blur.center.y - squareSize / 2
                 ),
                 size: CGSize (
                     width: squareSize,
@@ -138,12 +151,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         path.usesEvenOddFillRule = true
         
         let maskLayer = CAShapeLayer ()
-
         maskLayer.path = path.CGPath
         maskLayer.fillRule = kCAFillRuleEvenOdd
         
         let borderLayer = CAShapeLayer ()
-
         borderLayer.path = square.CGPath
         borderLayer.strokeColor = UIColor.whiteColor().CGColor
         borderLayer.lineWidth = 20
