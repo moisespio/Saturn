@@ -12,6 +12,7 @@ import AVFoundation
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var codeField: UITextField!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -24,11 +25,23 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         navigationController?.navigationBarHidden = true
         navBar.frame=CGRectMake(0, 0, self.view.frame.size.width, 70)
         self.view.addSubview(navBar)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         searchForDevices()
+        
+        var border = CALayer()
+        var width = CGFloat(2.0)
+        border.borderColor = UIColor(red: 222/255, green: 226/255, blue: 233/255, alpha: 1).CGColor
+        border.frame = CGRect(x: 0, y: codeField.frame.size.height - width, width:  codeField.frame.size.width, height: codeField.frame.size.height)
+        
+        border.borderWidth = width
+        codeField.layer.addSublayer(border)
+        codeField.layer.masksToBounds = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
     func searchForDevices() {

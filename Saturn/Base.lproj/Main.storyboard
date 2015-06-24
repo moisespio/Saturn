@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SanFranciscoText-Regular.otf">
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Scan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6c-0P-jlI">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G6c-0P-jlI">
                                 <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYr-zw-eG1">
@@ -60,24 +67,103 @@
                                         <exclude reference="cco-VA-osI"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="400"/>
-                                </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-SK-3FG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15294117647058825" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="J2T-w0-2tF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="S O L I C I T A R   S E N S O R">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="J2T-w0-2tF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="J2T-w0-2tF"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ou insira o código manualmente" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHz-ug-UvE">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <color key="tintColor" red="0.15686274510000001" green="0.1529411765" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hvw-U7-Gwk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hvw-U7-Gwk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="hvw-U7-Gwk"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mg2-SK-3FG" secondAttribute="bottom" id="59k-le-xOX"/>
+                            <constraint firstItem="uHz-ug-UvE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="6fO-aW-03m"/>
                             <constraint firstItem="G6c-0P-jlI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="EoR-HR-i0d"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="G6c-0P-jlI" secondAttribute="trailing" constant="-16" id="MYM-ld-a3g"/>
+                            <constraint firstItem="uHz-ug-UvE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="Hmo-IA-pFG">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="G6c-0P-jlI" secondAttribute="trailing" constant="-16" id="MYM-ld-a3g">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="G6c-0P-jlI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QoR-sN-msK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mg2-SK-3FG" secondAttribute="trailing" constant="-16" id="eU5-jf-voI"/>
+                            <constraint firstItem="mg2-SK-3FG" firstAttribute="top" secondItem="uHz-ug-UvE" secondAttribute="bottom" constant="60" id="o8e-xu-vdU"/>
+                            <constraint firstItem="mg2-SK-3FG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wQR-d6-yxw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="mg2-SK-3FG"/>
+                                <exclude reference="uHz-ug-UvE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6fO-aW-03m"/>
+                                <exclude reference="Hmo-IA-pFG"/>
+                                <exclude reference="eU5-jf-voI"/>
+                                <exclude reference="o8e-xu-vdU"/>
+                                <exclude reference="wQR-d6-yxw"/>
+                                <exclude reference="59k-le-xOX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="mg2-SK-3FG"/>
+                                <include reference="uHz-ug-UvE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6fO-aW-03m"/>
+                                <include reference="Hmo-IA-pFG"/>
+                                <include reference="eU5-jf-voI"/>
+                                <include reference="o8e-xu-vdU"/>
+                                <include reference="wQR-d6-yxw"/>
+                                <include reference="59k-le-xOX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="cyG-Ql-kvw"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="blurView" destination="xWB-pk-HFy" id="iEo-NS-h9P"/>
                         <outlet property="camera" destination="uYr-zw-eG1" id="c3C-gq-0DI"/>
+                        <outlet property="codeField" destination="uHz-ug-UvE" id="6WJ-ou-0XG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,7 +179,9 @@
                         <viewControllerLayoutGuide type="bottom" id="17F-4Q-fcw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NyM-2X-oCP" customClass="Sen">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="g7z-5L-xEn"/>
@@ -132,6 +220,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPn-Hi-LDg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
