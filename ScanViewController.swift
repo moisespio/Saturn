@@ -16,9 +16,15 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     var captureDevice : AVCaptureDevice?
-
+    var navBar:UINavigationBar = UINavigationBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBarHidden = true
+        navBar.frame=CGRectMake(0, 0, self.view.frame.size.width, 70)
+        self.view.addSubview(navBar)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,6 +48,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             }
         }
     }
+    
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
 

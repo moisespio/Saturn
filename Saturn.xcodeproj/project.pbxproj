@@ -26,6 +26,7 @@
 		D50B87A31B3994220059F0AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A21B3994220059F0AF /* SystemConfiguration.framework */; };
 		D50B87A51B3994280059F0AF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A41B3994280059F0AF /* libz.dylib */; };
 		D50B87A71B3994310059F0AF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A61B3994310059F0AF /* libsqlite3.dylib */; };
+		D58513341B3AEDD700FAB2B7 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */; };
 		EFABD4981B3AE2EF006DA439 /* SanFranciscoText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFABD4951B3AE2EF006DA439 /* SanFranciscoText-Light.otf */; };
 		EFABD4991B3AE2EF006DA439 /* SanFranciscoText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFABD4961B3AE2EF006DA439 /* SanFranciscoText-Regular.otf */; };
 		EFABD49A1B3AE2EF006DA439 /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFABD4971B3AE2EF006DA439 /* SanFranciscoText-Semibold.otf */; };
@@ -65,6 +66,7 @@
 		D50B87A21B3994220059F0AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D50B87A41B3994280059F0AF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D50B87A61B3994310059F0AF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
 		EFABD4951B3AE2EF006DA439 /* SanFranciscoText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Light.otf"; sourceTree = "<group>"; };
 		EFABD4961B3AE2EF006DA439 /* SanFranciscoText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Regular.otf"; sourceTree = "<group>"; };
 		EFABD4971B3AE2EF006DA439 /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				80FBFAF41B383F0B0050AD95 /* Images.xcassets */,
 				80FBFAF61B383F0B0050AD95 /* LaunchScreen.xib */,
 				80FBFAEB1B383F0B0050AD95 /* Supporting Files */,
+				D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */,
 			);
 			path = Saturn;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80FBFAEE1B383F0B0050AD95 /* AppDelegate.swift in Sources */,
+				D58513341B3AEDD700FAB2B7 /* SensorsViewController.swift in Sources */,
 				809946D51B3ADCE10054A88D /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
