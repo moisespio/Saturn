@@ -12,6 +12,7 @@ import AVFoundation
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var codeField: UITextField!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -25,7 +26,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         navBar.frame=CGRectMake(0, 0, self.view.frame.size.width, 70)
         self.view.addSubview(navBar)
         
-        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 60))
+        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 65))
         menuButton.setImage(UIImage(named: "menuButton"), forState: UIControlState.Normal)
         menuButton.addTarget(self, action: "tappedMenuButton:", forControlEvents: UIControlEvents.TouchUpInside)
         navBar.addSubview(menuButton)
@@ -48,6 +49,31 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidAppear(animated: Bool) {
         searchForDevices()
+        
+        var border = CALayer()
+        var width = CGFloat(2.0)
+        border.borderColor = UIColor(red: 222/255, green: 226/255, blue: 233/255, alpha: 1).CGColor
+        border.frame = CGRect(x: 0, y: codeField.frame.size.height - width, width:  codeField.frame.size.width, height: codeField.frame.size.height)
+        
+        border.borderWidth = width
+        codeField.layer.addSublayer(border)
+        codeField.layer.masksToBounds = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+    }
+    
+    func addLabelToView(view: UIView) {
+        var label = UILabel(frame: CGRectMake(0, 0, 240, 80))
+        label.center = CGPointMake(camera.frame.size.width / 2, camera.frame.size.height - 30)
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 2
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.font = UIFont(name: "SanFranciscoText-Regular", size: 16)
+        label.text = "Aponte sua câmera para o QRCode localizado no sensor"
+        label.textColor = UIColor.whiteColor()
+        view.addSubview(label)
     }
     
     func searchForDevices() {
@@ -62,6 +88,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                     if captureDevice != nil {
                         beginSession()
                         configQRCode()
+                        addLabelToView(blurView)
                     }
                 }
             }
@@ -150,7 +177,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             roundedRect: CGRect (
                 origin: CGPoint (
                     x: blur.center.x - squareSize / 2,
-                    y : 100
+                    y : blur.center.y - squareSize / 2
                 ),
                 size: CGSize (
                     width: squareSize,
@@ -164,12 +191,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         path.usesEvenOddFillRule = true
         
         let maskLayer = CAShapeLayer ()
-
         maskLayer.path = path.CGPath
         maskLayer.fillRule = kCAFillRuleEvenOdd
         
         let borderLayer = CAShapeLayer ()
-
         borderLayer.path = square.CGPath
         borderLayer.strokeColor = UIColor.whiteColor().CGColor
         borderLayer.lineWidth = 20

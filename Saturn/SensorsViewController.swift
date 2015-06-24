@@ -19,7 +19,7 @@ class SensorsViewController: UIViewController {
         navBar.frame=CGRectMake(0, 0, self.view.frame.size.width, 70)
         self.view.addSubview(navBar)
         
-        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 60))
+        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 65))
         menuButton.setImage(UIImage(named: "menuButton"), forState: UIControlState.Normal)
         menuButton.addTarget(self, action: "tappedMenuButton:", forControlEvents: UIControlEvents.TouchUpInside)
         navBar.addSubview(menuButton)
