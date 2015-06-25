@@ -17,10 +17,12 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     var captureDevice : AVCaptureDevice?
+    var qrCodeRead : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
    
+        qrCodeRead = false
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
     }
     
@@ -88,8 +90,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
-            if metadataObj.stringValue != nil {
-                println(metadataObj.stringValue)
+            if metadataObj.stringValue != nil && qrCodeRead == false {
+                qrCodeRead = true
+                let metadata = metadataObj.stringValue
+                self.performSegueWithIdentifier("SensorViewController", sender: metadata)
             }
         }
     }
@@ -195,5 +199,12 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SensorViewController" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let vc = navigationController.viewControllers[0] as! SensorViewController
+            vc.sensorCode = sender as! String
+        }
+    }
 }
-
