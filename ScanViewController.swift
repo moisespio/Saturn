@@ -40,10 +40,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         codeField.layer.masksToBounds = true
     }
     
-    override func viewWillAppear(animated: Bool) {
-        
-    }
-    
     func addLabelToView(view: UIView) {
         var label = UILabel(frame: CGRectMake(0, 0, 240, 80))
         label.center = CGPointMake(camera.frame.size.width / 2, camera.frame.size.height - 30)
