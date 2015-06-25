@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -124,7 +124,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="G6c-0P-jlI" secondAttribute="trailing" constant="-16" id="MYM-ld-a3g">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
                             </constraint>
-                            <constraint firstItem="G6c-0P-jlI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QoR-sN-msK"/>
+                            <constraint firstItem="G6c-0P-jlI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QoR-sN-msK">
+                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="mg2-SK-3FG" secondAttribute="trailing" constant="-16" id="eU5-jf-voI"/>
                             <constraint firstItem="mg2-SK-3FG" firstAttribute="top" secondItem="uHz-ug-UvE" secondAttribute="bottom" constant="60" id="o8e-xu-vdU"/>
                             <constraint firstItem="mg2-SK-3FG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wQR-d6-yxw"/>
@@ -158,6 +160,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="cyG-Ql-kvw"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>

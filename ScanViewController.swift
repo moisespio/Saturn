@@ -62,7 +62,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     func addLabelToView(view: UIView) {
         var label = UILabel(frame: CGRectMake(0, 0, 240, 80))
-        label.center = CGPointMake(camera.frame.size.width / 2, camera.frame.size.height - 30)
+        label.center = CGPointMake(camera.frame.size.width / 2, camera.frame.size.height - 60)
         label.textAlignment = NSTextAlignment.Center
         label.numberOfLines = 2
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -163,7 +163,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
 
         blurView.addSubview(blur)
         
-        let squareSize: CGFloat = 200
+        let squareSize: CGFloat = 190
         
         let path = UIBezierPath (
             roundedRect: blur.frame,
@@ -173,7 +173,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             roundedRect: CGRect (
                 origin: CGPoint (
                     x: blur.center.x - squareSize / 2,
-                    y : blur.center.y - squareSize / 2
+                    y : blur.center.y - (squareSize / 2) - 30
                 ),
                 size: CGSize (
                     width: squareSize,
@@ -192,8 +192,15 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         let borderLayer = CAShapeLayer ()
         borderLayer.path = square.CGPath
-        borderLayer.strokeColor = UIColor.whiteColor().CGColor
-        borderLayer.lineWidth = 20
+        borderLayer.strokeColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 1).CGColor
+        borderLayer.lineWidth = 15
+        
+        let borderLayer2 = CAShapeLayer ()
+        borderLayer2.path = square.CGPath
+        borderLayer2.strokeColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 0.2).CGColor
+        borderLayer2.lineWidth = 30
+
+        blur.layer.addSublayer(borderLayer2)
         blur.layer.addSublayer(borderLayer)
         
         blur.layer.mask = maskLayer
