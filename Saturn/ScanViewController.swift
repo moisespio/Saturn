@@ -156,7 +156,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.opacity = 0.3
+        previewLayer?.opacity = 1
         
         camera.layer.addSublayer(previewLayer)
         camera.clipsToBounds = true
@@ -175,7 +175,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
-            device.focusMode = .Locked
+            device.focusMode = .ContinuousAutoFocus
             device.unlockForConfiguration()
         }
         
