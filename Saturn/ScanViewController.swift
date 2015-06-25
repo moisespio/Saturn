@@ -13,6 +13,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var codeField: UITextField!
+    
+    @IBOutlet weak var buyButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cameraTopConstraint: NSLayoutConstraint!
 
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
@@ -22,6 +25,14 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         super.viewDidLoad()
    
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
+        
+        let font = UIFont(name: "SanFranciscoText-Regular", size: 14)!
+        let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName : font]
+        codeField.attributedPlaceholder = NSAttributedString(string: "Ou insira o código manualmente",
+            attributes:attributes)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func tappedCloseButton(sender: UIButton!)
@@ -44,6 +55,45 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         border.borderWidth = width
         codeField.layer.addSublayer(border)
         codeField.layer.masksToBounds = true
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    func animateWithKeyboard(notification: NSNotification) {
+        var userInfo = notification.userInfo!
+
+        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        
+        if notification.name == UIKeyboardWillShowNotification {
+            buyButtonBottomConstraint.constant = keyboardSize.height
+            cameraTopConstraint.constant = (keyboardSize.height - 70) * -1
+        }
+        else {
+            buyButtonBottomConstraint.constant = 0
+            cameraTopConstraint.constant = 70
+        }
+        
+        view.setNeedsUpdateConstraints()
+        let options = UIViewAnimationOptions(curve << 16)
+        
+        UIView.animateWithDuration(duration, delay: 0, options: options,
+            animations: {
+                self.view.layoutIfNeeded()
+            },
+            completion: nil
+        )
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        animateWithKeyboard(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        animateWithKeyboard(notification)
     }
     
     func addLabelToView(view: UIView) {
