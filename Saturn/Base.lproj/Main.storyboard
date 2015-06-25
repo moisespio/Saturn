@@ -9,7 +9,10 @@
     <customFonts key="customFonts">
         <mutableArray key="SanFranciscoText-Regular.otf">
             <string>SanFranciscoText-Regular</string>
-            <string>SanFranciscoText-Regular</string>
+        </mutableArray>
+        <mutableArray key="SanFranciscoText-Semibold.otf">
+            <string>SanFranciscoText-Semibold</string>
+            <string>SanFranciscoText-Semibold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -71,7 +74,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-SK-3FG">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.15686274509803921" green="0.15294117647058825" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="J2T-w0-2tF"/>
                                 </constraints>
@@ -91,7 +94,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="fcQ-G3-hCr" kind="presentation" id="UiL-uf-8W7"/>
+                                    <segue destination="fcQ-G3-hCr" kind="presentation" identifier="SensorViewController" id="UiL-uf-8W7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ou insira o código manualmente" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHz-ug-UvE">
@@ -101,7 +104,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hvw-U7-Gwk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                <color key="textColor" red="0.15686274510000001" green="0.1529411765" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -168,7 +172,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="blurView" destination="xWB-pk-HFy" id="iEo-NS-h9P"/>
+                        <outlet property="buyButtonBottomConstraint" destination="59k-le-xOX" id="JwH-2i-eIk"/>
                         <outlet property="camera" destination="uYr-zw-eG1" id="c3C-gq-0DI"/>
+                        <outlet property="cameraTopConstraint" destination="QoR-sN-msK" id="N8P-e3-Lft"/>
                         <outlet property="codeField" destination="uHz-ug-UvE" id="6WJ-ou-0XG"/>
                     </connections>
                 </viewController>
@@ -176,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1791" y="404.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Sensor View Controller-->
         <scene sceneID="SWP-35-v1b">
             <objects>
-                <viewController id="qW5-pL-PDy" sceneMemberID="viewController">
+                <viewController id="qW5-pL-PDy" customClass="SensorViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UtW-JP-JeO"/>
                         <viewControllerLayoutGuide type="bottom" id="gg3-So-bk5"/>
@@ -187,9 +193,65 @@
                     <view key="view" contentMode="scaleToFill" id="d9m-5N-SqG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpt-Wj-6Mv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4n2-RT-EHU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4n2-RT-EHU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4n2-RT-EHU"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leading" id="5TZ-tM-IAu"/>
+                            <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="LNP-eB-Ilg"/>
+                            <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="Srt-XT-L7q"/>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="top" secondItem="UtW-JP-JeO" secondAttribute="bottom" id="ai1-rb-3RT"/>
+                            <constraint firstAttribute="trailing" secondItem="Gpt-Wj-6Mv" secondAttribute="trailing" id="jaf-eA-HNw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Gpt-Wj-6Mv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5TZ-tM-IAu"/>
+                                <exclude reference="ai1-rb-3RT"/>
+                                <exclude reference="jaf-eA-HNw"/>
+                                <exclude reference="LNP-eB-Ilg"/>
+                                <exclude reference="Srt-XT-L7q"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Gpt-Wj-6Mv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5TZ-tM-IAu"/>
+                                <include reference="ai1-rb-3RT"/>
+                                <include reference="jaf-eA-HNw"/>
+                                <include reference="LNP-eB-Ilg"/>
+                                <exclude reference="Srt-XT-L7q"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="CP7-8o-Wir"/>
+                    <connections>
+                        <outlet property="labelSensorCode" destination="Gpt-Wj-6Mv" id="Pru-0s-y5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cM7-jO-lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,6 +326,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ID5-TT-SLy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
