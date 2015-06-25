@@ -21,13 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.barTintColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 1.0)
-        
-        let lblSaturn : UILabel = UILabel(frame: CGRectMake(26, 27, 100, 70))
-        lblSaturn.text = "SATURN"
-        lblSaturn.backgroundColor = UIColor.redColor()
-        
-        navigationBarAppearance.addSubview(lblSaturn)
-        
+                
         Parse.enableLocalDatastore()
         
         Parse.setApplicationId("8mUWmIYpf3NdgETSQZDBpZ6iWgGylRc7MgU2XWwV",
@@ -35,9 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        //printFonts()
+        
         return true
     }
 
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames()
+        for familyName in fontFamilyNames {
+            println("------------------------------")
+            println("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNamesForFamilyName(familyName as! String)
+            println("Font Names = [\(names)]")
+        }
+    }
 
 
 }
