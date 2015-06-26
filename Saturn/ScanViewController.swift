@@ -16,7 +16,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     @IBOutlet weak var buyButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var cameraTopConstraint: NSLayoutConstraint!
-
+    
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     var captureDevice : AVCaptureDevice?
@@ -24,7 +24,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         qrCodeRead = false
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
         
@@ -32,7 +32,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName : font]
         codeField.attributedPlaceholder = NSAttributedString(string: "Ou insira o código manualmente",
             attributes:attributes)
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -65,7 +65,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     func animateWithKeyboard(notification: NSNotification) {
         var userInfo = notification.userInfo!
-
+        
         let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
         let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! UInt
