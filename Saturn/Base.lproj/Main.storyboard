@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -198,39 +198,41 @@
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="4n2-RT-EHU"/>
+                                    <constraint firstAttribute="height" constant="70" id="QdT-wL-KgH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="4n2-RT-EHU"/>
+                                        <exclude reference="QdT-wL-KgH"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="4n2-RT-EHU"/>
+                                        <include reference="QdT-wL-KgH"/>
                                     </mask>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leading" id="5TZ-tM-IAu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gpt-Wj-6Mv" secondAttribute="trailing" constant="-16" id="AXq-yq-Mog"/>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leadingMargin" constant="-16" id="Ett-Oe-EXI"/>
                             <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="LNP-eB-Ilg"/>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="top" secondItem="d9m-5N-SqG" secondAttribute="topMargin" constant="52" id="O7q-co-AsS">
+                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
+                            </constraint>
                             <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="Srt-XT-L7q"/>
-                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="top" secondItem="UtW-JP-JeO" secondAttribute="bottom" id="ai1-rb-3RT"/>
-                            <constraint firstAttribute="trailing" secondItem="Gpt-Wj-6Mv" secondAttribute="trailing" id="jaf-eA-HNw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Gpt-Wj-6Mv"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5TZ-tM-IAu"/>
-                                <exclude reference="ai1-rb-3RT"/>
-                                <exclude reference="jaf-eA-HNw"/>
+                                <exclude reference="AXq-yq-Mog"/>
+                                <exclude reference="Ett-Oe-EXI"/>
+                                <exclude reference="O7q-co-AsS"/>
                                 <exclude reference="LNP-eB-Ilg"/>
                                 <exclude reference="Srt-XT-L7q"/>
                             </mask>
@@ -240,10 +242,10 @@
                                 <include reference="Gpt-Wj-6Mv"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5TZ-tM-IAu"/>
-                                <include reference="ai1-rb-3RT"/>
-                                <include reference="jaf-eA-HNw"/>
-                                <include reference="LNP-eB-Ilg"/>
+                                <include reference="AXq-yq-Mog"/>
+                                <include reference="Ett-Oe-EXI"/>
+                                <include reference="O7q-co-AsS"/>
+                                <exclude reference="LNP-eB-Ilg"/>
                                 <exclude reference="Srt-XT-L7q"/>
                             </mask>
                         </variation>

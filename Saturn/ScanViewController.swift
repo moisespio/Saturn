@@ -35,6 +35,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        searchForDevices()
     }
     
     func tappedCloseButton(sender: UIButton!)
@@ -47,8 +48,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     override func viewDidAppear(animated: Bool) {
-        searchForDevices()
-        
         var border = CALayer()
         var width = CGFloat(2.0)
         border.borderColor = UIColor(red: 222/255, green: 226/255, blue: 233/255, alpha: 1).CGColor
@@ -57,6 +56,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         border.borderWidth = width
         codeField.layer.addSublayer(border)
         codeField.layer.masksToBounds = true
+        
+        maskQRCode()
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
