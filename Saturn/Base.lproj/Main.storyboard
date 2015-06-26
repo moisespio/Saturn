@@ -10,9 +10,9 @@
         <mutableArray key="SanFranciscoText-Regular.otf">
             <string>SanFranciscoText-Regular</string>
             <string>SanFranciscoText-Regular</string>
-            <string>SanFranciscoText-Regular</string>
         </mutableArray>
         <mutableArray key="SanFranciscoText-Semibold.otf">
+            <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
         </mutableArray>
@@ -276,9 +276,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZpO-da-TRI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DOn-0v-l3a">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DOn-0v-l3a" customClass="SensorsTableViewCell" customModule="Saturn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOn-0v-l3a" id="5di-2i-aN9">
@@ -288,8 +289,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="2ZA-bm-BjX"/>
-                                                        <constraint firstAttribute="height" constant="18" id="2x9-5r-JHc"/>
+                                                        <constraint firstAttribute="width" constant="18" id="2ZA-bm-BjX">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="22"/>
+                                                        </constraint>
+                                                        <constraint firstAttribute="height" constant="18" id="2x9-5r-JHc">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="22"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -308,7 +313,7 @@
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <color key="tintColor" red="0.52156862745098043" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="14"/>
                                                     <color key="textColor" red="0.52156862745098043" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -324,16 +329,18 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="sBo-Im-hzg" firstAttribute="top" secondItem="5di-2i-aN9" secondAttribute="topMargin" constant="20" id="9md-wk-wkd">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="14"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                 </constraint>
                                                 <constraint firstItem="sBo-Im-hzg" firstAttribute="top" secondItem="4Bh-aS-4PG" secondAttribute="top" constant="-18" id="Adu-1f-FWn">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="-14"/>
                                                 </constraint>
                                                 <constraint firstItem="sBo-Im-hzg" firstAttribute="leading" secondItem="4Bh-aS-4PG" secondAttribute="leading" id="BJK-ux-gdg"/>
                                                 <constraint firstItem="vK2-Ke-D3M" firstAttribute="leading" secondItem="5di-2i-aN9" secondAttribute="leadingMargin" id="eb5-h0-IUE">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
-                                                <constraint firstItem="sBo-Im-hzg" firstAttribute="leading" secondItem="vK2-Ke-D3M" secondAttribute="trailing" constant="14" id="jAU-fS-qHU"/>
+                                                <constraint firstItem="sBo-Im-hzg" firstAttribute="leading" secondItem="vK2-Ke-D3M" secondAttribute="trailing" constant="14" id="jAU-fS-qHU">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="vK2-Ke-D3M" secondAttribute="centerY" id="wiR-S4-e53"/>
                                             </constraints>
                                             <variation key="default">
@@ -343,12 +350,12 @@
                                                     <exclude reference="4Bh-aS-4PG"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="eb5-h0-IUE"/>
-                                                    <exclude reference="wiR-S4-e53"/>
                                                     <exclude reference="9md-wk-wkd"/>
                                                     <exclude reference="Adu-1f-FWn"/>
                                                     <exclude reference="BJK-ux-gdg"/>
                                                     <exclude reference="jAU-fS-qHU"/>
+                                                    <exclude reference="eb5-h0-IUE"/>
+                                                    <exclude reference="wiR-S4-e53"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -358,16 +365,21 @@
                                                     <include reference="4Bh-aS-4PG"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="eb5-h0-IUE"/>
-                                                    <include reference="wiR-S4-e53"/>
                                                     <include reference="9md-wk-wkd"/>
                                                     <include reference="Adu-1f-FWn"/>
                                                     <include reference="BJK-ux-gdg"/>
                                                     <include reference="jAU-fS-qHU"/>
+                                                    <include reference="eb5-h0-IUE"/>
+                                                    <include reference="wiR-S4-e53"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="identifier" destination="sBo-Im-hzg" id="gZi-Fj-2Ll"/>
+                                            <outlet property="location" destination="4Bh-aS-4PG" id="52I-nv-WLS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -377,7 +389,7 @@
                             </tableView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ZpO-da-TRI" firstAttribute="top" secondItem="NyM-2X-oCP" secondAttribute="topMargin" constant="70" id="1yK-uo-4aY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZpO-da-TRI" secondAttribute="trailing" constant="-16" id="4yf-W5-q7t"/>

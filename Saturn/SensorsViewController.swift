@@ -10,10 +10,20 @@ import UIKit
 
 class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var items: [String] = ["We", "Heart", "Swift"]
+    var items: [SensorModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        SensorModel.getSensors {
+            (sensorList: Array<SensorModel>?) -> Void in
+            if (sensorList != nil) {
+                self.items = sensorList!
+                self.tableView.reloadData()
+            }
+        }
 
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
@@ -42,13 +52,26 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-//        cell.textLabel?.text = self.items[indexPath.row]
+        var cell: SensorsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! SensorsTableViewCell
+        cell.identifier.text = self.items[indexPath.row].sensorDescription
 
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            if let tv = self.tableView {
+                items.removeAtIndex(indexPath.row)
+                tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+        }
     }
 }

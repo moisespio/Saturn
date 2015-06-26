@@ -70,7 +70,7 @@ class SensorModel: NSObject {
     static func getSensors(function: (Array<SensorModel>?) -> Void) -> Void
     {
         var query = PFQuery(className:"Sensor")
-        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
+//        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             var sensorList = Array<SensorModel>()
