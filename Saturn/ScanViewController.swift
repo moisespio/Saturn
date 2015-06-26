@@ -131,7 +131,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-
+        
         if metadataObjects == nil || metadataObjects.count == 0 {
             println("No qr code is detected")
             return
@@ -196,11 +196,11 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func maskQRCode () {
         var blur: UIView!
         blurView.clipsToBounds = true
-
+        
         blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Dark))
         blur.frame = blurView.frame
         blur.userInteractionEnabled = false
-
+        
         blurView.addSubview(blur)
         
         let squareSize: CGFloat = 190
@@ -239,13 +239,13 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         borderLayer2.path = square.CGPath
         borderLayer2.strokeColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 0.2).CGColor
         borderLayer2.lineWidth = 30
-
+        
         blur.layer.addSublayer(borderLayer2)
         blur.layer.addSublayer(borderLayer)
         
         blur.layer.mask = maskLayer
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

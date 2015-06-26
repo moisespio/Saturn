@@ -9,11 +9,11 @@
 import UIKit
 
 class SensorsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
+        self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
     func tappedMenuButton(sender: UIButton!)
@@ -25,7 +25,7 @@ class SensorsViewController: UIViewController {
         super.viewDidAppear(animated)
         performSegueWithIdentifier("ScanViewController", sender: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
