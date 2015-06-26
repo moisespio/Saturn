@@ -15,6 +15,7 @@ class SensorModel: NSObject {
     var sensorCode : String?
     var sensorName : String?
     var sensorDescription : String?
+    var sensorInstallationObject : PFObject?
     
     ///
     /// Usage:
@@ -39,6 +40,7 @@ class SensorModel: NSObject {
         sensor["code"] = sensorCode
         sensor["name"] = sensorName
         sensor["description"] = sensorDescription
+        sensor["installation"] = sensorInstallationObject
         sensor.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
