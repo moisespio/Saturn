@@ -212,11 +212,62 @@
                     <view key="view" contentMode="scaleToFill" id="NyM-2X-oCP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZpO-da-TRI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DOn-0v-l3a">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOn-0v-l3a" id="5di-2i-aN9">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aFA-Zk-lN6" id="HLx-2o-pfB"/>
+                                    <outlet property="delegate" destination="aFA-Zk-lN6" id="E9s-Z0-YW6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZpO-da-TRI" firstAttribute="top" secondItem="NyM-2X-oCP" secondAttribute="topMargin" constant="70" id="1yK-uo-4aY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZpO-da-TRI" secondAttribute="trailing" constant="-16" id="4yf-W5-q7t"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZpO-da-TRI" secondAttribute="bottom" id="FIo-gI-jJA"/>
+                            <constraint firstItem="ZpO-da-TRI" firstAttribute="leading" secondItem="NyM-2X-oCP" secondAttribute="leadingMargin" constant="-16" id="cEk-yY-H9q"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ZpO-da-TRI"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1yK-uo-4aY"/>
+                                <exclude reference="4yf-W5-q7t"/>
+                                <exclude reference="FIo-gI-jJA"/>
+                                <exclude reference="cEk-yY-H9q"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ZpO-da-TRI"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1yK-uo-4aY"/>
+                                <include reference="4yf-W5-q7t"/>
+                                <include reference="FIo-gI-jJA"/>
+                                <include reference="cEk-yY-H9q"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="g7z-5L-xEn"/>
                     <connections>
+                        <outlet property="tableView" destination="ZpO-da-TRI" id="QQb-JM-IFX"/>
                         <segue destination="Wtd-0Y-7fp" kind="presentation" identifier="ScanViewController" id="euZ-OX-0SC"/>
                     </connections>
                 </viewController>
