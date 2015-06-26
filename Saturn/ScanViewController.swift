@@ -20,10 +20,12 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     var captureDevice : AVCaptureDevice?
+    var qrCodeRead : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
    
+        qrCodeRead = false
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
         
         let font = UIFont(name: "SanFranciscoText-Regular", size: 14)!
@@ -129,7 +131,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-
+        
         if metadataObjects == nil || metadataObjects.count == 0 {
             println("No qr code is detected")
             return
@@ -138,8 +140,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
-            if metadataObj.stringValue != nil {
-                println(metadataObj.stringValue)
+            if metadataObj.stringValue != nil && qrCodeRead == false {
+                qrCodeRead = true
+                let metadata = metadataObj.stringValue
+                self.performSegueWithIdentifier("SensorViewController", sender: metadata)
             }
         }
     }
@@ -192,11 +196,11 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func maskQRCode () {
         var blur: UIView!
         blurView.clipsToBounds = true
-
+        
         blur = UIVisualEffectView (effect: UIBlurEffect (style: UIBlurEffectStyle.Dark))
         blur.frame = blurView.frame
         blur.userInteractionEnabled = false
-
+        
         blurView.addSubview(blur)
         
         let squareSize: CGFloat = 190
@@ -235,15 +239,22 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         borderLayer2.path = square.CGPath
         borderLayer2.strokeColor = UIColor(red: 127/255, green: 148/255, blue: 255/255, alpha: 0.2).CGColor
         borderLayer2.lineWidth = 30
-
+        
         blur.layer.addSublayer(borderLayer2)
         blur.layer.addSublayer(borderLayer)
         
         blur.layer.mask = maskLayer
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SensorViewController" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let vc = navigationController.viewControllers[0] as! SensorViewController
+            vc.sensorCode = sender as! String
+        }
+    }
 }
-

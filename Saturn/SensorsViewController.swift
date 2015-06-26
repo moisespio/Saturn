@@ -15,7 +15,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
@@ -30,9 +30,9 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        performSegueWithIdentifier("ScanViewController", sender: nil)
+//        performSegueWithIdentifier("ScanViewController", sender: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -43,7 +43,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-        cell.textLabel?.text = self.items[indexPath.row]
+//        cell.textLabel?.text = self.items[indexPath.row]
 
         return cell
     }

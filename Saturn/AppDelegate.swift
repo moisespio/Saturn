@@ -29,9 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        var type = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
+        var setting = UIUserNotificationSettings(forTypes: type, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(setting)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        
         //printFonts()
         
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        println("Register: \(deviceToken)")
+        PFInstallation.currentInstallation().setDeviceTokenFromData(deviceToken)
+        PFInstallation.currentInstallation().saveInBackground()
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println("Couldn't register: \(error)")
     }
 
     func printFonts() {
