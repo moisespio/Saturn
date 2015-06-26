@@ -150,7 +150,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     func beginSession() {
-        maskQRCode()
         configureDevice()
         
         var err : NSError? = nil

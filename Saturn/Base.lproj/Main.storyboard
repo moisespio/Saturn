@@ -9,8 +9,10 @@
     <customFonts key="customFonts">
         <mutableArray key="SanFranciscoText-Regular.otf">
             <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
         </mutableArray>
         <mutableArray key="SanFranciscoText-Semibold.otf">
+            <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
         </mutableArray>
@@ -198,41 +200,124 @@
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="QdT-wL-KgH"/>
+                                    <constraint firstAttribute="height" constant="70" id="pKL-Mz-Cpo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="QdT-wL-KgH"/>
+                                        <exclude reference="pKL-Mz-Cpo"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="QdT-wL-KgH"/>
+                                        <include reference="pKL-Mz-Cpo"/>
                                     </mask>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dê um nome para este sensor. Ex: cozinha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PqO-yi-yM8">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="18h-9P-L73"/>
+                                    <constraint firstAttribute="width" constant="280" id="g1s-EP-s6a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="18h-9P-L73"/>
+                                        <exclude reference="g1s-EP-s6a"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="18h-9P-L73"/>
+                                        <include reference="g1s-EP-s6a"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ou insira o código manualmente" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXy-Yv-Jfa">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="tintColor" red="0.15686274510000001" green="0.1529411765" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mi4-1x-52f"/>
+                                </constraints>
+                                <color key="textColor" red="0.15686274510000001" green="0.1529411765" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mi4-1x-52f"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="mi4-1x-52f"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMD-ed-Tof">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.20784313725490197" green="0.70980392156862748" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="kBQ-gg-4zm"/>
+                                    <constraint firstAttribute="height" constant="50" id="w7C-yK-jjw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="15"/>
+                                <state key="normal" title="SALVAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kBQ-gg-4zm"/>
+                                        <exclude reference="w7C-yK-jjw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="kBQ-gg-4zm"/>
+                                        <include reference="w7C-yK-jjw"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gpt-Wj-6Mv" secondAttribute="trailing" constant="-16" id="AXq-yq-Mog"/>
-                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leadingMargin" constant="-16" id="Ett-Oe-EXI"/>
-                            <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="LNP-eB-Ilg"/>
-                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="top" secondItem="d9m-5N-SqG" secondAttribute="topMargin" constant="52" id="O7q-co-AsS">
+                            <constraint firstItem="iMD-ed-Tof" firstAttribute="top" secondItem="PqO-yi-yM8" secondAttribute="bottom" constant="39" id="FEx-KU-Vb9"/>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="top" secondItem="d9m-5N-SqG" secondAttribute="topMargin" constant="55" id="IUN-ma-brU">
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
+                            <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="LNP-eB-Ilg"/>
+                            <constraint firstItem="PqO-yi-yM8" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leadingMargin" constant="44" id="MTw-fA-HyX"/>
                             <constraint firstItem="gg3-So-bk5" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="666" id="Srt-XT-L7q"/>
+                            <constraint firstItem="Gpt-Wj-6Mv" firstAttribute="leading" secondItem="d9m-5N-SqG" secondAttribute="leadingMargin" constant="-16" id="X7j-aW-zZs"/>
+                            <constraint firstAttribute="centerY" secondItem="PqO-yi-yM8" secondAttribute="centerY" constant="198" id="brP-XC-zvP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gpt-Wj-6Mv" secondAttribute="trailing" constant="-16" id="iG0-Q3-MXi"/>
+                            <constraint firstAttribute="centerX" secondItem="iMD-ed-Tof" secondAttribute="centerX" id="jYO-Kw-BqQ"/>
+                            <constraint firstAttribute="centerY" secondItem="PqO-yi-yM8" secondAttribute="centerY" constant="195" id="r7L-cc-yRP"/>
+                            <constraint firstItem="PqO-yi-yM8" firstAttribute="top" secondItem="Gpt-Wj-6Mv" secondAttribute="bottom" constant="50" id="rG4-pv-ivV"/>
+                            <constraint firstAttribute="centerX" secondItem="PqO-yi-yM8" secondAttribute="centerX" id="zpE-2H-nnA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Gpt-Wj-6Mv"/>
+                                <exclude reference="PqO-yi-yM8"/>
+                                <exclude reference="OXy-Yv-Jfa"/>
+                                <exclude reference="iMD-ed-Tof"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AXq-yq-Mog"/>
-                                <exclude reference="Ett-Oe-EXI"/>
-                                <exclude reference="O7q-co-AsS"/>
+                                <exclude reference="IUN-ma-brU"/>
+                                <exclude reference="X7j-aW-zZs"/>
+                                <exclude reference="iG0-Q3-MXi"/>
+                                <exclude reference="MTw-fA-HyX"/>
+                                <exclude reference="brP-XC-zvP"/>
+                                <exclude reference="r7L-cc-yRP"/>
+                                <exclude reference="rG4-pv-ivV"/>
+                                <exclude reference="zpE-2H-nnA"/>
+                                <exclude reference="FEx-KU-Vb9"/>
+                                <exclude reference="jYO-Kw-BqQ"/>
                                 <exclude reference="LNP-eB-Ilg"/>
                                 <exclude reference="Srt-XT-L7q"/>
                             </mask>
@@ -240,11 +325,21 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Gpt-Wj-6Mv"/>
+                                <include reference="PqO-yi-yM8"/>
+                                <exclude reference="OXy-Yv-Jfa"/>
+                                <include reference="iMD-ed-Tof"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AXq-yq-Mog"/>
-                                <include reference="Ett-Oe-EXI"/>
-                                <include reference="O7q-co-AsS"/>
+                                <include reference="IUN-ma-brU"/>
+                                <include reference="X7j-aW-zZs"/>
+                                <include reference="iG0-Q3-MXi"/>
+                                <exclude reference="MTw-fA-HyX"/>
+                                <exclude reference="brP-XC-zvP"/>
+                                <exclude reference="r7L-cc-yRP"/>
+                                <include reference="rG4-pv-ivV"/>
+                                <include reference="zpE-2H-nnA"/>
+                                <include reference="FEx-KU-Vb9"/>
+                                <include reference="jYO-Kw-BqQ"/>
                                 <exclude reference="LNP-eB-Ilg"/>
                                 <exclude reference="Srt-XT-L7q"/>
                             </mask>
@@ -252,6 +347,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CP7-8o-Wir"/>
                     <connections>
+                        <outlet property="codeField" destination="PqO-yi-yM8" id="qMi-Ov-ggT"/>
                         <outlet property="labelSensorCode" destination="Gpt-Wj-6Mv" id="Pru-0s-y5E"/>
                     </connections>
                 </viewController>
