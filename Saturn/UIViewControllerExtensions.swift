@@ -10,7 +10,7 @@ extension UIViewController {
         navBar.frame=CGRectMake(0, 0, self.view.frame.size.width, 70)
         self.view.addSubview(navBar)
         
-        let lblSaturn : UILabel = UILabel(frame: CGRectMake(26, 0, 100, 70))
+        let lblSaturn : UILabel = UILabel(frame: CGRectMake(24, 0, 100, 70))
         lblSaturn.font = UIFont(name: "SanFranciscoText-Semibold", size: 14)
         lblSaturn.text = "S A T U R N"
         lblSaturn.textColor = UIColor.whiteColor()
@@ -22,7 +22,7 @@ extension UIViewController {
     func addSaturnNavigationBarWithCloseButton(selector : Selector)
     {
         let navBar = addSaturnNavigationBar()
-        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 70))
+        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width - 65, 0, 60, 70))
         menuButton.setImage(UIImage(named: "closeButton"), forState: UIControlState.Normal)
         menuButton.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
         navBar.addSubview(menuButton)
@@ -31,7 +31,7 @@ extension UIViewController {
     func addSaturnNavigationBarWithMenuButton(selector : Selector)
     {
         let navBar = addSaturnNavigationBar()
-        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width-85, 0, 60, 70))
+        let menuButton : UIButton = UIButton(frame: CGRectMake(self.view.frame.width - 65, 0, 60, 70))
         menuButton.setImage(UIImage(named: "menuButton"), forState: UIControlState.Normal)
         menuButton.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
 
