@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -53,7 +54,8 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: SensorsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! SensorsTableViewCell
-        cell.identifier.text = self.items[indexPath.row].sensorDescription
+        cell.identifier.text = self.items[indexPath.row].sensorName
+        cell.location.text = self.items[indexPath.row].sensorDescription
         cell.selectionStyle = .None
 
         return cell
@@ -70,6 +72,8 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             if let tv = self.tableView {
+                var sensor: PFObject = self.items[indexPath.row].sensorParseObject!
+                sensor.deleteInBackground()
                 items.removeAtIndex(indexPath.row)
                 tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
