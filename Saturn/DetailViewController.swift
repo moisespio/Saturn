@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addSaturnNavigationBarWithCloseButton("tappedMenuButton:")
+        self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -21,6 +21,10 @@ class DetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func tappedCloseButton(sender: UIViewController!) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

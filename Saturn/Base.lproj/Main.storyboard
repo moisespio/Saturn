@@ -525,7 +525,7 @@
                     <connections>
                         <outlet property="tableView" destination="ZpO-da-TRI" id="QQb-JM-IFX"/>
                         <segue destination="Wtd-0Y-7fp" kind="presentation" identifier="ScanViewController" id="euZ-OX-0SC"/>
-                        <segue destination="0wV-m0-fNo" kind="show" identifier="DetailViewController" id="M9L-34-xn7"/>
+                        <segue destination="0wV-m0-fNo" kind="presentation" identifier="DetailViewController" id="M9L-34-xn7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyP-jg-Z68" userLabel="First Responder" sceneMemberID="firstResponder"/>
