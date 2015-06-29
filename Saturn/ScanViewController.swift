@@ -153,7 +153,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
         var count = metadataObjects.count
-        println(count)
         
         if metadataObjects == nil || count < 1 {
             println("No qr code is detected")

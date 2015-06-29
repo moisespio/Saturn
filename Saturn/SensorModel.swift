@@ -11,6 +11,17 @@ import Parse
 
 class SensorModel: NSObject {
     
+    init(sensorName: String, sensorCode: String, sensorDescription: String?) {
+        self.sensorCode = sensorCode
+        self.sensorName = sensorName
+        
+        if (sensorDescription != nil && sensorDescription != "") {
+            self.sensorDescription = sensorDescription
+        } else {
+            self.sensorDescription = "Descrição padrão"
+        }
+    }
+    
     init(sensorParseObject : PFObject)
     {
         self.sensorParseObject = sensorParseObject
@@ -43,7 +54,14 @@ class SensorModel: NSObject {
     ///     }
     func saveSensor(function: (Bool, String) -> Void) -> Void
     {
-        let sensor = PFObject(className:"Sensor")
+        var sensor : PFObject
+        
+        if ((self.sensorParseObject) != nil) {
+            sensor = self.sensorParseObject!
+        } else {
+            sensor = PFObject(className:"Sensor")
+        }
+        
         sensor["code"] = sensorCode
         sensor["name"] = sensorName
         sensor["description"] = sensorDescription
@@ -70,7 +88,7 @@ class SensorModel: NSObject {
     static func getSensors(function: (Array<SensorModel>?) -> Void) -> Void
     {
         var query = PFQuery(className:"Sensor")
-//        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
+        //        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             var sensorList = Array<SensorModel>()
