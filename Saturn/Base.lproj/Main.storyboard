@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsV-HU-dIg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -188,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="404.25"/>
+            <point key="canvasLocation" x="207" y="422.25"/>
         </scene>
         <!--Sensor View Controller-->
         <scene sceneID="SWP-35-v1b">
@@ -288,6 +288,9 @@
                                         <include reference="w7C-yK-jjw"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="saveSensor:" destination="qW5-pL-PDy" eventType="touchUpInside" id="Yp0-St-3xz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -357,11 +360,12 @@
                     <connections>
                         <outlet property="codeField" destination="PqO-yi-yM8" id="qMi-Ov-ggT"/>
                         <outlet property="labelSensorCode" destination="Gpt-Wj-6Mv" id="Pru-0s-y5E"/>
+                        <segue destination="aFA-Zk-lN6" kind="show" identifier="sensorsViewController" id="vaR-3K-zgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cM7-jO-lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2704.5" y="1115.25"/>
+            <point key="canvasLocation" x="2314.5" y="422.25"/>
         </scene>
         <!--Sensors View Controller-->
         <scene sceneID="zLU-cf-PMW">
@@ -418,6 +422,9 @@
                                                     <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="14"/>
                                                     <color key="textColor" red="0.52156862745098043" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="20" width="62" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bh-aS-4PG">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -426,6 +433,9 @@
                                                     <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="12"/>
                                                     <color key="textColor" red="0.52156862749999999" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="34" width="47" height="14"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
@@ -628,17 +638,17 @@
                                 <exclude reference="G8z-th-x4O"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Aw1-qD-Ge0"/>
-                                <exclude reference="SmW-31-zsB"/>
-                                <exclude reference="a6G-JY-bPx"/>
-                                <exclude reference="3qF-JF-0Eh"/>
-                                <exclude reference="NZv-ok-alh"/>
-                                <exclude reference="BtS-5K-13t"/>
-                                <exclude reference="OAs-Oe-o0h"/>
-                                <exclude reference="OsK-os-u9v"/>
                                 <exclude reference="DWH-MK-duw"/>
                                 <exclude reference="LE5-Wi-0OE"/>
                                 <exclude reference="ygk-Uj-zq3"/>
+                                <exclude reference="Aw1-qD-Ge0"/>
+                                <exclude reference="SmW-31-zsB"/>
+                                <exclude reference="a6G-JY-bPx"/>
+                                <exclude reference="BtS-5K-13t"/>
+                                <exclude reference="OAs-Oe-o0h"/>
+                                <exclude reference="OsK-os-u9v"/>
+                                <exclude reference="3qF-JF-0Eh"/>
+                                <exclude reference="NZv-ok-alh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -649,17 +659,17 @@
                                 <include reference="G8z-th-x4O"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Aw1-qD-Ge0"/>
-                                <include reference="SmW-31-zsB"/>
-                                <include reference="a6G-JY-bPx"/>
-                                <include reference="3qF-JF-0Eh"/>
-                                <include reference="NZv-ok-alh"/>
-                                <include reference="BtS-5K-13t"/>
-                                <include reference="OAs-Oe-o0h"/>
-                                <include reference="OsK-os-u9v"/>
                                 <include reference="DWH-MK-duw"/>
                                 <include reference="LE5-Wi-0OE"/>
                                 <include reference="ygk-Uj-zq3"/>
+                                <include reference="Aw1-qD-Ge0"/>
+                                <include reference="SmW-31-zsB"/>
+                                <include reference="a6G-JY-bPx"/>
+                                <include reference="BtS-5K-13t"/>
+                                <include reference="OAs-Oe-o0h"/>
+                                <include reference="OsK-os-u9v"/>
+                                <include reference="3qF-JF-0Eh"/>
+                                <include reference="NZv-ok-alh"/>
                             </mask>
                         </variation>
                     </view>
@@ -686,7 +696,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcB-sA-yS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946.5" y="404.25"/>
+            <point key="canvasLocation" x="-591" y="422.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tXH-Iq-lf6">
@@ -724,7 +734,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erE-dE-EDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="1115.25"/>
+            <point key="canvasLocation" x="1335" y="422.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LVK-wW-hWc">
@@ -750,6 +760,7 @@
         <image name="small-ok-icon" width="66" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vaR-3K-zgL"/>
         <segue reference="M9L-34-xn7"/>
     </inferredMetricsTieBreakers>
 </document>
