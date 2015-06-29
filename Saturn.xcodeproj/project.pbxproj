@@ -28,13 +28,13 @@
 		D50B87A31B3994220059F0AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A21B3994220059F0AF /* SystemConfiguration.framework */; };
 		D50B87A51B3994280059F0AF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A41B3994280059F0AF /* libz.dylib */; };
 		D50B87A71B3994310059F0AF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B87A61B3994310059F0AF /* libsqlite3.dylib */; };
-		D526E5771B41888B0036F8EE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E5761B41888B0036F8EE /* InterfaceController.swift */; };
-		D526E5791B41888B0036F8EE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E5781B41888B0036F8EE /* NotificationController.swift */; };
-		D526E57B1B41888B0036F8EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D526E57A1B41888B0036F8EE /* Images.xcassets */; };
-		D526E57F1B41888B0036F8EE /* Saturn WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = D526E57E1B41888B0036F8EE /* Saturn WatchKit App.app */; };
-		D526E5871B41888B0036F8EE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D526E5851B41888B0036F8EE /* Interface.storyboard */; };
-		D526E5891B41888B0036F8EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D526E5881B41888B0036F8EE /* Images.xcassets */; };
-		D526E58C1B41888B0036F8EE /* Saturn WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D526E5711B41888B0036F8EE /* Saturn WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D526E5A01B418D880036F8EE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E59F1B418D880036F8EE /* InterfaceController.swift */; };
+		D526E5A21B418D880036F8EE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E5A11B418D880036F8EE /* NotificationController.swift */; };
+		D526E5A41B418D880036F8EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D526E5A31B418D880036F8EE /* Images.xcassets */; };
+		D526E5A81B418D880036F8EE /* Saturn WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = D526E5A71B418D880036F8EE /* Saturn WatchKit App.app */; };
+		D526E5B01B418D880036F8EE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D526E5AE1B418D880036F8EE /* Interface.storyboard */; };
+		D526E5B21B418D880036F8EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D526E5B11B418D880036F8EE /* Images.xcassets */; };
+		D526E5B51B418D880036F8EE /* Saturn WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D526E59A1B418D880036F8EE /* Saturn WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D58513341B3AEDD700FAB2B7 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */; };
 		D58513381B3C3B4000FAB2B7 /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513371B3C3B4000FAB2B7 /* SensorModel.swift */; };
 		D585133A1B3C503600FAB2B7 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513391B3C503600FAB2B7 /* UIViewControllerExtensions.swift */; };
@@ -53,18 +53,18 @@
 			remoteGlobalIDString = 80FBFAE71B383F0B0050AD95;
 			remoteInfo = Saturn;
 		};
-		D526E5801B41888B0036F8EE /* PBXContainerItemProxy */ = {
+		D526E5A91B418D880036F8EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80FBFAE01B383F0B0050AD95 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D526E57D1B41888B0036F8EE;
+			remoteGlobalIDString = D526E5A61B418D880036F8EE;
 			remoteInfo = "Saturn WatchKit App";
 		};
-		D526E58A1B41888B0036F8EE /* PBXContainerItemProxy */ = {
+		D526E5B31B418D880036F8EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80FBFAE01B383F0B0050AD95 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D526E5701B41888B0036F8EE;
+			remoteGlobalIDString = D526E5991B418D880036F8EE;
 			remoteInfo = "Saturn WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
@@ -76,7 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D526E58C1B41888B0036F8EE /* Saturn WatchKit Extension.appex in Embed App Extensions */,
+				D526E5B51B418D880036F8EE /* Saturn WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,16 +109,16 @@
 		D50B87A21B3994220059F0AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D50B87A41B3994280059F0AF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D50B87A61B3994310059F0AF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		D526E5711B41888B0036F8EE /* Saturn WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Saturn WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D526E5741B41888B0036F8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D526E5751B41888B0036F8EE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		D526E5761B41888B0036F8EE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		D526E5781B41888B0036F8EE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		D526E57A1B41888B0036F8EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D526E57E1B41888B0036F8EE /* Saturn WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saturn WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D526E5841B41888B0036F8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D526E5861B41888B0036F8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		D526E5881B41888B0036F8EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D526E59A1B418D880036F8EE /* Saturn WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Saturn WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D526E59D1B418D880036F8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D526E59E1B418D880036F8EE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D526E59F1B418D880036F8EE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D526E5A11B418D880036F8EE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D526E5A31B418D880036F8EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D526E5A71B418D880036F8EE /* Saturn WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saturn WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D526E5AD1B418D880036F8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D526E5AF1B418D880036F8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D526E5B11B418D880036F8EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
 		D58513371B3C3B4000FAB2B7 /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
 		D58513391B3C503600FAB2B7 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D526E56E1B41888B0036F8EE /* Frameworks */ = {
+		D526E5971B418D880036F8EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,8 +171,8 @@
 			children = (
 				80FBFAEA1B383F0B0050AD95 /* Saturn */,
 				80FBFB001B383F0B0050AD95 /* SaturnTests */,
-				D526E5721B41888B0036F8EE /* Saturn WatchKit Extension */,
-				D526E5821B41888B0036F8EE /* Saturn WatchKit App */,
+				D526E59B1B418D880036F8EE /* Saturn WatchKit Extension */,
+				D526E5AB1B418D880036F8EE /* Saturn WatchKit App */,
 				80FBFAE91B383F0B0050AD95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,8 +182,8 @@
 			children = (
 				80FBFAE81B383F0B0050AD95 /* Saturn.app */,
 				80FBFAFD1B383F0B0050AD95 /* SaturnTests.xctest */,
-				D526E5711B41888B0036F8EE /* Saturn WatchKit Extension.appex */,
-				D526E57E1B41888B0036F8EE /* Saturn WatchKit App.app */,
+				D526E59A1B418D880036F8EE /* Saturn WatchKit Extension.appex */,
+				D526E5A71B418D880036F8EE /* Saturn WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,40 +236,40 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D526E5721B41888B0036F8EE /* Saturn WatchKit Extension */ = {
+		D526E59B1B418D880036F8EE /* Saturn WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D526E5761B41888B0036F8EE /* InterfaceController.swift */,
-				D526E5781B41888B0036F8EE /* NotificationController.swift */,
-				D526E57A1B41888B0036F8EE /* Images.xcassets */,
-				D526E5731B41888B0036F8EE /* Supporting Files */,
+				D526E59F1B418D880036F8EE /* InterfaceController.swift */,
+				D526E5A11B418D880036F8EE /* NotificationController.swift */,
+				D526E5A31B418D880036F8EE /* Images.xcassets */,
+				D526E59C1B418D880036F8EE /* Supporting Files */,
 			);
 			path = "Saturn WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		D526E5731B41888B0036F8EE /* Supporting Files */ = {
+		D526E59C1B418D880036F8EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D526E5741B41888B0036F8EE /* Info.plist */,
-				D526E5751B41888B0036F8EE /* PushNotificationPayload.apns */,
+				D526E59D1B418D880036F8EE /* Info.plist */,
+				D526E59E1B418D880036F8EE /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D526E5821B41888B0036F8EE /* Saturn WatchKit App */ = {
+		D526E5AB1B418D880036F8EE /* Saturn WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				D526E5851B41888B0036F8EE /* Interface.storyboard */,
-				D526E5881B41888B0036F8EE /* Images.xcassets */,
-				D526E5831B41888B0036F8EE /* Supporting Files */,
+				D526E5AE1B418D880036F8EE /* Interface.storyboard */,
+				D526E5B11B418D880036F8EE /* Images.xcassets */,
+				D526E5AC1B418D880036F8EE /* Supporting Files */,
 			);
 			path = "Saturn WatchKit App";
 			sourceTree = "<group>";
 		};
-		D526E5831B41888B0036F8EE /* Supporting Files */ = {
+		D526E5AC1B418D880036F8EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D526E5841B41888B0036F8EE /* Info.plist */,
+				D526E5AD1B418D880036F8EE /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D526E58B1B41888B0036F8EE /* PBXTargetDependency */,
+				D526E5B41B418D880036F8EE /* PBXTargetDependency */,
 			);
 			name = Saturn;
 			productName = Saturn;
@@ -343,29 +343,29 @@
 			productReference = 80FBFAFD1B383F0B0050AD95 /* SaturnTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D526E5701B41888B0036F8EE /* Saturn WatchKit Extension */ = {
+		D526E5991B418D880036F8EE /* Saturn WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D526E5921B41888B0036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit Extension" */;
+			buildConfigurationList = D526E5B91B418D880036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit Extension" */;
 			buildPhases = (
-				D526E56D1B41888B0036F8EE /* Sources */,
-				D526E56E1B41888B0036F8EE /* Frameworks */,
-				D526E56F1B41888B0036F8EE /* Resources */,
+				D526E5961B418D880036F8EE /* Sources */,
+				D526E5971B418D880036F8EE /* Frameworks */,
+				D526E5981B418D880036F8EE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D526E5811B41888B0036F8EE /* PBXTargetDependency */,
+				D526E5AA1B418D880036F8EE /* PBXTargetDependency */,
 			);
 			name = "Saturn WatchKit Extension";
 			productName = "Saturn WatchKit Extension";
-			productReference = D526E5711B41888B0036F8EE /* Saturn WatchKit Extension.appex */;
+			productReference = D526E59A1B418D880036F8EE /* Saturn WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit-extension";
 		};
-		D526E57D1B41888B0036F8EE /* Saturn WatchKit App */ = {
+		D526E5A61B418D880036F8EE /* Saturn WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D526E5911B41888B0036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit App" */;
+			buildConfigurationList = D526E5B61B418D880036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit App" */;
 			buildPhases = (
-				D526E57C1B41888B0036F8EE /* Resources */,
+				D526E5A51B418D880036F8EE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -373,7 +373,7 @@
 			);
 			name = "Saturn WatchKit App";
 			productName = "Saturn WatchKit App";
-			productReference = D526E57E1B41888B0036F8EE /* Saturn WatchKit App.app */;
+			productReference = D526E5A71B418D880036F8EE /* Saturn WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
@@ -397,10 +397,10 @@
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = 80FBFAE71B383F0B0050AD95;
 					};
-					D526E5701B41888B0036F8EE = {
+					D526E5991B418D880036F8EE = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
-					D526E57D1B41888B0036F8EE = {
+					D526E5A61B418D880036F8EE = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
@@ -420,8 +420,8 @@
 			targets = (
 				80FBFAE71B383F0B0050AD95 /* Saturn */,
 				80FBFAFC1B383F0B0050AD95 /* SaturnTests */,
-				D526E5701B41888B0036F8EE /* Saturn WatchKit Extension */,
-				D526E57D1B41888B0036F8EE /* Saturn WatchKit App */,
+				D526E5991B418D880036F8EE /* Saturn WatchKit Extension */,
+				D526E5A61B418D880036F8EE /* Saturn WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -447,21 +447,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D526E56F1B41888B0036F8EE /* Resources */ = {
+		D526E5981B418D880036F8EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D526E57B1B41888B0036F8EE /* Images.xcassets in Resources */,
-				D526E57F1B41888B0036F8EE /* Saturn WatchKit App.app in Resources */,
+				D526E5A41B418D880036F8EE /* Images.xcassets in Resources */,
+				D526E5A81B418D880036F8EE /* Saturn WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D526E57C1B41888B0036F8EE /* Resources */ = {
+		D526E5A51B418D880036F8EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D526E5871B41888B0036F8EE /* Interface.storyboard in Resources */,
-				D526E5891B41888B0036F8EE /* Images.xcassets in Resources */,
+				D526E5B01B418D880036F8EE /* Interface.storyboard in Resources */,
+				D526E5B21B418D880036F8EE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,12 +493,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D526E56D1B41888B0036F8EE /* Sources */ = {
+		D526E5961B418D880036F8EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D526E5791B41888B0036F8EE /* NotificationController.swift in Sources */,
-				D526E5771B41888B0036F8EE /* InterfaceController.swift in Sources */,
+				D526E5A21B418D880036F8EE /* NotificationController.swift in Sources */,
+				D526E5A01B418D880036F8EE /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,15 +510,15 @@
 			target = 80FBFAE71B383F0B0050AD95 /* Saturn */;
 			targetProxy = 80FBFAFE1B383F0B0050AD95 /* PBXContainerItemProxy */;
 		};
-		D526E5811B41888B0036F8EE /* PBXTargetDependency */ = {
+		D526E5AA1B418D880036F8EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D526E57D1B41888B0036F8EE /* Saturn WatchKit App */;
-			targetProxy = D526E5801B41888B0036F8EE /* PBXContainerItemProxy */;
+			target = D526E5A61B418D880036F8EE /* Saturn WatchKit App */;
+			targetProxy = D526E5A91B418D880036F8EE /* PBXContainerItemProxy */;
 		};
-		D526E58B1B41888B0036F8EE /* PBXTargetDependency */ = {
+		D526E5B41B418D880036F8EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D526E5701B41888B0036F8EE /* Saturn WatchKit Extension */;
-			targetProxy = D526E58A1B41888B0036F8EE /* PBXContainerItemProxy */;
+			target = D526E5991B418D880036F8EE /* Saturn WatchKit Extension */;
+			targetProxy = D526E5B31B418D880036F8EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -539,10 +539,10 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		D526E5851B41888B0036F8EE /* Interface.storyboard */ = {
+		D526E5AE1B418D880036F8EE /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D526E5861B41888B0036F8EE /* Base */,
+				D526E5AF1B418D880036F8EE /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -703,63 +703,63 @@
 			};
 			name = Release;
 		};
-		D526E58D1B41888B0036F8EE /* Debug */ = {
+		D526E5B71B418D880036F8EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Saturn WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				IBSC_MODULE = Saturn_WatchKit_Extension;
+				INFOPLIST_FILE = "Saturn WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Debug;
 		};
-		D526E58E1B41888B0036F8EE /* Release */ = {
+		D526E5B81B418D880036F8EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Saturn WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Saturn_WatchKit_Extension;
+				INFOPLIST_FILE = "Saturn WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Release;
 		};
-		D526E58F1B41888B0036F8EE /* Debug */ = {
+		D526E5BA1B418D880036F8EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				IBSC_MODULE = Saturn_WatchKit_Extension;
-				INFOPLIST_FILE = "Saturn WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Saturn WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Debug;
 		};
-		D526E5901B41888B0036F8EE /* Release */ = {
+		D526E5BB1B418D880036F8EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				IBSC_MODULE = Saturn_WatchKit_Extension;
-				INFOPLIST_FILE = "Saturn WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Saturn WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Release;
 		};
@@ -793,19 +793,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D526E5911B41888B0036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit App" */ = {
+		D526E5B61B418D880036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D526E58F1B41888B0036F8EE /* Debug */,
-				D526E5901B41888B0036F8EE /* Release */,
+				D526E5B71B418D880036F8EE /* Debug */,
+				D526E5B81B418D880036F8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		D526E5921B41888B0036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit Extension" */ = {
+		D526E5B91B418D880036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D526E58D1B41888B0036F8EE /* Debug */,
-				D526E58E1B41888B0036F8EE /* Release */,
+				D526E5BA1B418D880036F8EE /* Debug */,
+				D526E5BB1B418D880036F8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
