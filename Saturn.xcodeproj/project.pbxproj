@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80CC90721B4167A000FA4096 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC90711B4167A000FA4096 /* DetailViewController.swift */; };
 		80E272861B3D8DB300ABA11C /* SensorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E272851B3D8DB300ABA11C /* SensorsTableViewCell.swift */; };
 		80FBFAEE1B383F0B0050AD95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */; };
 		80FBFAF31B383F0B0050AD95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FBFAF11B383F0B0050AD95 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80CC90711B4167A000FA4096 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		80E272851B3D8DB300ABA11C /* SensorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsTableViewCell.swift; sourceTree = "<group>"; };
 		80FBFAE81B383F0B0050AD95 /* Saturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FBFAEC1B383F0B0050AD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				EF99864E1B3C3566000E479C /* ScanViewController.swift */,
 				EF99864F1B3C3566000E479C /* SensorViewController.swift */,
 				80FBFAF11B383F0B0050AD95 /* Main.storyboard */,
+				80CC90711B4167A000FA4096 /* DetailViewController.swift */,
 				80FBFAF41B383F0B0050AD95 /* Images.xcassets */,
 				80FBFAF61B383F0B0050AD95 /* LaunchScreen.xib */,
 				80FBFAEB1B383F0B0050AD95 /* Supporting Files */,
@@ -253,6 +256,7 @@
 				TargetAttributes = {
 					80FBFAE71B383F0B0050AD95 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = T3T8J82XPY;
 					};
 					80FBFAFC1B383F0B0050AD95 = {
 						CreatedOnToolsVersion = 6.3;
@@ -314,6 +318,7 @@
 				D585133A1B3C503600FAB2B7 /* UIViewControllerExtensions.swift in Sources */,
 				EF9986501B3C3566000E479C /* ScanViewController.swift in Sources */,
 				80E272861B3D8DB300ABA11C /* SensorsTableViewCell.swift in Sources */,
+				80CC90721B4167A000FA4096 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Saturn",
@@ -456,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Saturn",
