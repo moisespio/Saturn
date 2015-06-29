@@ -17,25 +17,22 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet weak var buyButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var cameraTopConstraint: NSLayoutConstraint!
     
-    let captureSession = AVCaptureSession()
-    var previewLayer : AVCaptureVideoPreviewLayer?
+    var objCaptureSession = AVCaptureSession()
+    var objCaptureVideoPreviewLayer : AVCaptureVideoPreviewLayer?
     var captureDevice : AVCaptureDevice?
     var qrCodeRead : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        qrCodeRead = false
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
         
         let font = UIFont(name: "SanFranciscoText-Regular", size: 14)!
         let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName : font]
-        codeField.attributedPlaceholder = NSAttributedString(string: "Ou insira o código manualmente",
-            attributes:attributes)
+        codeField.attributedPlaceholder = NSAttributedString(string: "Ou insira o código manualmente", attributes:attributes)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        searchForDevices()
     }
     
     func tappedCloseButton(sender: UIButton!)
@@ -57,12 +54,54 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         codeField.layer.addSublayer(border)
         codeField.layer.masksToBounds = true
         
-        maskQRCode()
+        self.configureVideoCapture()
+        self.addVideoPreviewLayer()
+        self.maskQRCode()
+        self.addLabelToView(blurView)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
+    func configureVideoCapture() {
+        let objCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        var error:NSError?
+        let objCaptureDeviceInput: AnyObject! = AVCaptureDeviceInput.deviceInputWithDevice(objCaptureDevice, error: &error)
+        if (error != nil) {
+            var alertView:UIAlertView = UIAlertView(title: "Device Error", message:"Device not Supported for this Application", delegate: nil, cancelButtonTitle: "Ok Done")
+            alertView.show()
+            return
+        }
+        objCaptureSession = AVCaptureSession()
+        objCaptureSession.addInput(objCaptureDeviceInput as! AVCaptureInput)
+        let objCaptureMetadataOutput = AVCaptureMetadataOutput()
+        objCaptureSession.addOutput(objCaptureMetadataOutput)
+        objCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        objCaptureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+    }
+    
+    func addVideoPreviewLayer() {
+        objCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: objCaptureSession)
+        objCaptureVideoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        objCaptureVideoPreviewLayer?.frame = view.layer.bounds
+        self.view.layer.addSublayer(objCaptureVideoPreviewLayer)
+        objCaptureSession.startRunning()
+        
+        objCaptureVideoPreviewLayer?.opacity = 1
+        camera.layer.addSublayer(objCaptureVideoPreviewLayer)
+        camera.clipsToBounds = true
+        
+        objCaptureVideoPreviewLayer?.frame = camera.layer.frame
+        objCaptureVideoPreviewLayer?.position = CGPoint(
+            x : camera.frame.size.width / 2,
+            y : 0
+        )
+        
+        objCaptureVideoPreviewLayer?.frame.size.height = camera.frame.size.height * 2
+
+    }
+    
     
     func animateWithKeyboard(notification: NSNotification) {
         var userInfo = notification.userInfo!
@@ -111,69 +150,24 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         view.addSubview(label)
     }
     
-    func searchForDevices() {
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
-        let devices = AVCaptureDevice.devices()
-        
-        for device in devices {
-            if (device.hasMediaType(AVMediaTypeVideo)) {
-                if(device.position == AVCaptureDevicePosition.Back) {
-                    captureDevice = device as? AVCaptureDevice
-                    
-                    if captureDevice != nil {
-                        beginSession()
-                        configQRCode()
-                        addLabelToView(blurView)
-                    }
-                }
-            }
-        }
-    }
-    
-    
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
-        if metadataObjects == nil || metadataObjects.count == 0 {
+        var count = metadataObjects.count
+        println(count)
+        
+        if metadataObjects == nil || count < 1 {
             println("No qr code is detected")
             return
         }
         
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        let metadataObj = metadataObjects[count - 1] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
-            if metadataObj.stringValue != nil && qrCodeRead == false {
-                qrCodeRead = true
+            if metadataObj.stringValue != nil {
                 let metadata = metadataObj.stringValue
                 self.performSegueWithIdentifier("SensorViewController", sender: metadata)
             }
         }
-    }
-    
-    func beginSession() {
-        configureDevice()
-        
-        var err : NSError? = nil
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-        
-        if err != nil {
-            println("error: \(err?.localizedDescription)")
-        }
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.opacity = 1
-        
-        camera.layer.addSublayer(previewLayer)
-        camera.clipsToBounds = true
-        
-        previewLayer?.frame = camera.layer.frame
-        previewLayer?.position = CGPoint(
-            x : camera.frame.size.width / 2,
-            y : 0
-        )
-        
-        previewLayer?.frame.size.height = camera.frame.size.height * 2
-        
-        captureSession.startRunning()
     }
     
     func configureDevice() {
@@ -183,14 +177,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             device.unlockForConfiguration()
         }
         
-    }
-    
-    func configQRCode() {
-        let captureMetadataOutput = AVCaptureMetadataOutput()
-        captureSession.addOutput(captureMetadataOutput)
-        
-        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-        captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
     }
     
     func maskQRCode () {
