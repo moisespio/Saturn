@@ -33,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var setting = UIUserNotificationSettings(forTypes: type, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(setting)
         UIApplication.sharedApplication().registerForRemoteNotifications()
+
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("SensorsViewController") as! SensorsViewController
+        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+        
+        let slideMenuController = SlideMenuController(mainViewController: mainViewController, rightMenuViewController: rightViewController)
+        
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
         
         //printFonts()
         

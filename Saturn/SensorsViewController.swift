@@ -31,7 +31,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tappedMenuButton(sender: UIButton!)
     {
-        println("tapped button")
+        self.slideMenuController()?.openRight()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -54,6 +54,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: SensorsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! SensorsTableViewCell
         cell.identifier.text = self.items[indexPath.row].sensorDescription
+        cell.selectionStyle = .None
 
         return cell
     }

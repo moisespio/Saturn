@@ -13,6 +13,7 @@
             <string>SanFranciscoText-Regular</string>
             <string>SanFranciscoText-Regular</string>
             <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
         </mutableArray>
         <mutableArray key="SanFranciscoText-Semibold.otf">
             <string>SanFranciscoText-Semibold</string>
@@ -77,6 +78,9 @@
                                     <mask key="constraints">
                                         <exclude reference="cco-VA-osI"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="90" width="400" height="400"/>
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-SK-3FG">
@@ -366,7 +370,7 @@
         <!--Sensors View Controller-->
         <scene sceneID="zLU-cf-PMW">
             <objects>
-                <viewController id="aFA-Zk-lN6" customClass="SensorsViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SensorsViewController" id="aFA-Zk-lN6" customClass="SensorsViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jnF-9I-8PX"/>
                         <viewControllerLayoutGuide type="bottom" id="17F-4Q-fcw"/>
@@ -522,6 +526,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="g7z-5L-xEn"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="ZpO-da-TRI" id="QQb-JM-IFX"/>
                         <segue destination="Wtd-0Y-7fp" kind="presentation" identifier="ScanViewController" id="euZ-OX-0SC"/>
@@ -558,7 +563,8 @@
                                         <exclude reference="nE9-8V-3cO"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="134" width="400" height="70"/>
                                     <mask key="constraints">
                                         <include reference="nE9-8V-3cO"/>
                                     </mask>
@@ -669,6 +675,78 @@
             </objects>
             <point key="canvasLocation" x="190" y="1846"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="W2M-y5-56l">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="Id9-Ul-yd2" customClass="MenuViewController" customModule="Saturn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xEj-9o-scF"/>
+                        <viewControllerLayoutGuide type="bottom" id="tzf-MX-egL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="taW-IL-Mx8">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9S-N0-MIq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Apq-9f-b1c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="15"/>
+                                <state key="normal" title="Adicionar novo Sensor">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Apq-9f-b1c"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Apq-9f-b1c"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.10980392160000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="V9S-N0-MIq" firstAttribute="top" secondItem="xEj-9o-scF" secondAttribute="bottom" constant="20" id="MMU-uW-Apm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V9S-N0-MIq" secondAttribute="trailing" constant="70" id="Xhy-KB-i0O">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="V9S-N0-MIq" firstAttribute="leading" secondItem="taW-IL-Mx8" secondAttribute="leadingMargin" constant="70" id="xx6-Mo-cmq">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="V9S-N0-MIq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MMU-uW-Apm"/>
+                                <exclude reference="Xhy-KB-i0O"/>
+                                <exclude reference="xx6-Mo-cmq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="V9S-N0-MIq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MMU-uW-Apm"/>
+                                <include reference="Xhy-KB-i0O"/>
+                                <include reference="xx6-Mo-cmq"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="addNewSensor" destination="V9S-N0-MIq" id="mD0-X8-bqK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fe-oR-sf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234.5" y="1845.75"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XEG-Bc-PPD">
             <objects>
@@ -693,6 +771,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dsV-HU-dIg" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPn-Hi-LDg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
