@@ -35,6 +35,8 @@
 		D526E5B01B418D880036F8EE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D526E5AE1B418D880036F8EE /* Interface.storyboard */; };
 		D526E5B21B418D880036F8EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D526E5B11B418D880036F8EE /* Images.xcassets */; };
 		D526E5B51B418D880036F8EE /* Saturn WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D526E59A1B418D880036F8EE /* Saturn WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D526E5BD1B4192B40036F8EE /* SensorRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E5BC1B4192B40036F8EE /* SensorRowType.swift */; };
+		D526E5BF1B4198AF0036F8EE /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526E5BE1B4198AF0036F8EE /* SensorModel.swift */; };
 		D58513341B3AEDD700FAB2B7 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */; };
 		D58513381B3C3B4000FAB2B7 /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513371B3C3B4000FAB2B7 /* SensorModel.swift */; };
 		D585133A1B3C503600FAB2B7 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58513391B3C503600FAB2B7 /* UIViewControllerExtensions.swift */; };
@@ -119,6 +121,8 @@
 		D526E5AD1B418D880036F8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D526E5AF1B418D880036F8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D526E5B11B418D880036F8EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D526E5BC1B4192B40036F8EE /* SensorRowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorRowType.swift; sourceTree = "<group>"; };
+		D526E5BE1B4198AF0036F8EE /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
 		D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
 		D58513371B3C3B4000FAB2B7 /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
 		D58513391B3C503600FAB2B7 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				D526E5A11B418D880036F8EE /* NotificationController.swift */,
 				D526E5A31B418D880036F8EE /* Images.xcassets */,
 				D526E59C1B418D880036F8EE /* Supporting Files */,
+				D526E5BC1B4192B40036F8EE /* SensorRowType.swift */,
+				D526E5BE1B4198AF0036F8EE /* SensorModel.swift */,
 			);
 			path = "Saturn WatchKit Extension";
 			sourceTree = "<group>";
@@ -497,8 +503,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D526E5BD1B4192B40036F8EE /* SensorRowType.swift in Sources */,
 				D526E5A21B418D880036F8EE /* NotificationController.swift in Sources */,
 				D526E5A01B418D880036F8EE /* InterfaceController.swift in Sources */,
+				D526E5BF1B4198AF0036F8EE /* SensorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +808,7 @@
 				D526E5B81B418D880036F8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D526E5B91B418D880036F8EE /* Build configuration list for PBXNativeTarget "Saturn WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -808,6 +817,7 @@
 				D526E5BB1B418D880036F8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

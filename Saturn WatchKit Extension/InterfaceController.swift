@@ -11,21 +11,50 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    
+    var sensorList : Array<SensorModel> = []
+    @IBOutlet weak var sensorTable: WKInterfaceTable!
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
     }
-
+    
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
-
+    
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    func configureTable(){
+        
+        self.sensorTable.setNumberOfRows(self.sensorList.count, withRowType: "SensorRowType")
+        
+        for var index = 0; index < sensorTable.numberOfRows; index++ {
+            var sensorRow = sensorTable.rowControllerAtIndex(index) as! SensorRowType
+            sensorRow.lblSensor.setText(sensorList[index].sensorName)
+            
+            switch sensorList[index].sensorStatus {
+            case 0:
+                sensorRow.imgStatus.setImage(UIImage(named: "small-ok-icon"))
+            case 1:
+                sensorRow.imgStatus.setImage(UIImage(named: "small-warning-icon"))
+            case 2:
+                sensorRow.imgStatus.setImage(UIImage(named: "small-problem-icon"))
+            default:
+                sensorRow.imgStatus.setImage(UIImage(named: "small-ok-icon"))
+            }
+        }
+    }
+    
+    func loadSensorList (){
+        var dic = NSDictionary(object: "querySensors", forKey: "ACTION")
+        
+//        WKInterfaceController.openParentApplication(dic, reply: { ([NSObject : AnyObject]!, NSError!) -> Void in
+//            
+//        })
+    }
+    
 }
