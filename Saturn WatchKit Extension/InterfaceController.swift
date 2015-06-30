@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
+        loadSensorList()
     }
     
     override func willActivate() {
@@ -49,12 +49,23 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func loadSensorList (){
+    func loadSensorList(){
+        
         var dic = NSDictionary(object: "querySensors", forKey: "ACTION")
         
-//        WKInterfaceController.openParentApplication(dic, reply: { ([NSObject : AnyObject]!, NSError!) -> Void in
-//            
-//        })
+        WKInterfaceController.openParentApplication(dic as [NSObject : AnyObject], reply: { (replyValues, error) -> Void in
+            
+            if let sensors = replyValues["SENSORS"] as? NSArray
+            {
+                for dic in sensors{
+                    let m = SensorModel()
+                    m.sensorName = dic["SENSOR_NAME"] as? String
+                    m.sensorStatus = dic["SENSOR_STATUS"] as! Int
+                    self.sensorList.append(m)
+                }
+                self.configureTable()
+            }
+        })
     }
     
 }
