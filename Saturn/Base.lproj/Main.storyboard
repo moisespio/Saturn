@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,9 +13,10 @@
             <string>SanFranciscoText-Regular</string>
             <string>SanFranciscoText-Regular</string>
             <string>SanFranciscoText-Regular</string>
-            <string>SanFranciscoText-Regular</string>
         </mutableArray>
         <mutableArray key="SanFranciscoText-Semibold.otf">
+            <string>SanFranciscoText-Semibold</string>
+            <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
             <string>SanFranciscoText-Semibold</string>
@@ -78,9 +79,6 @@
                                     <mask key="constraints">
                                         <exclude reference="cco-VA-osI"/>
                                     </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="90" width="400" height="400"/>
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-SK-3FG">
@@ -437,9 +435,6 @@
                                                     <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="12"/>
                                                     <color key="textColor" red="0.52156862749999999" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="54" y="34" width="47" height="14"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
@@ -573,8 +568,7 @@
                                         <exclude reference="nE9-8V-3cO"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="134" width="400" height="70"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="nE9-8V-3cO"/>
                                     </mask>
@@ -694,16 +688,19 @@
                         <viewControllerLayoutGuide type="bottom" id="tzf-MX-egL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="taW-IL-Mx8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9S-N0-MIq">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Apq-9f-b1c"/>
+                                    <constraint firstAttribute="height" constant="44" id="Apq-9f-b1c">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="15"/>
-                                <state key="normal" title="Adicionar novo Sensor">
-                                    <color key="titleColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="14"/>
+                                <state key="normal" title="Adicionar Sensor">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -717,13 +714,98 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-2D-U64">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I88-d6-kPa">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kEW-4e-m68" customClass="MenuTableViewCell" customModule="Saturn" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kEW-4e-m68" id="RlU-s8-d1Q">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP9-hK-TS5">
+                                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="14"/>
+                                                            <color key="textColor" red="0.52156862749999999" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="centerY" secondItem="tP9-hK-TS5" secondAttribute="centerY" id="PVm-RJ-jub"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="tP9-hK-TS5" secondAttribute="trailing" constant="20" id="eUr-GO-IaU">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                                        </constraint>
+                                                        <constraint firstItem="tP9-hK-TS5" firstAttribute="leading" secondItem="RlU-s8-d1Q" secondAttribute="leadingMargin" constant="20" id="sbn-Kb-Fhp">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                                        </constraint>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="subviews">
+                                                            <exclude reference="tP9-hK-TS5"/>
+                                                        </mask>
+                                                        <mask key="constraints">
+                                                            <exclude reference="PVm-RJ-jub"/>
+                                                            <exclude reference="eUr-GO-IaU"/>
+                                                            <exclude reference="sbn-Kb-Fhp"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="subviews">
+                                                            <include reference="tP9-hK-TS5"/>
+                                                        </mask>
+                                                        <mask key="constraints">
+                                                            <include reference="PVm-RJ-jub"/>
+                                                            <include reference="eUr-GO-IaU"/>
+                                                            <include reference="sbn-Kb-Fhp"/>
+                                                        </mask>
+                                                    </variation>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="menuLabel" destination="tP9-hK-TS5" id="pVZ-Xw-8eN"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="690"/>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Id9-Ul-yd2" id="kHD-qa-kyK"/>
+                                            <outlet property="delegate" destination="Id9-Ul-yd2" id="LuL-aq-6aD"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="I88-d6-kPa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="I88-d6-kPa"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.10980392160000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.47058823529999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="V9S-N0-MIq" firstAttribute="top" secondItem="xEj-9o-scF" secondAttribute="bottom" constant="20" id="MMU-uW-Apm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2IB-2D-U64" secondAttribute="trailing" constant="-16" id="Uii-03-bfp">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="V9S-N0-MIq" secondAttribute="trailing" constant="70" id="Xhy-KB-i0O">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstItem="2IB-2D-U64" firstAttribute="top" secondItem="V9S-N0-MIq" secondAttribute="bottom" constant="20" id="lqw-Sf-gPD"/>
+                            <constraint firstItem="2IB-2D-U64" firstAttribute="leading" secondItem="taW-IL-Mx8" secondAttribute="leadingMargin" constant="-16" id="qAZ-MZ-rGP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                            </constraint>
+                            <constraint firstItem="tzf-MX-egL" firstAttribute="top" secondItem="2IB-2D-U64" secondAttribute="bottom" id="xIk-fk-U4h"/>
                             <constraint firstItem="V9S-N0-MIq" firstAttribute="leading" secondItem="taW-IL-Mx8" secondAttribute="leadingMargin" constant="70" id="xx6-Mo-cmq">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
@@ -731,26 +813,37 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="V9S-N0-MIq"/>
+                                <exclude reference="2IB-2D-U64"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="xIk-fk-U4h"/>
                                 <exclude reference="MMU-uW-Apm"/>
                                 <exclude reference="Xhy-KB-i0O"/>
                                 <exclude reference="xx6-Mo-cmq"/>
+                                <exclude reference="Uii-03-bfp"/>
+                                <exclude reference="lqw-Sf-gPD"/>
+                                <exclude reference="qAZ-MZ-rGP"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="V9S-N0-MIq"/>
+                                <include reference="2IB-2D-U64"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="xIk-fk-U4h"/>
                                 <include reference="MMU-uW-Apm"/>
                                 <include reference="Xhy-KB-i0O"/>
                                 <include reference="xx6-Mo-cmq"/>
+                                <include reference="Uii-03-bfp"/>
+                                <include reference="lqw-Sf-gPD"/>
+                                <include reference="qAZ-MZ-rGP"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="addNewSensor" destination="V9S-N0-MIq" id="mD0-X8-bqK"/>
+                        <outlet property="tableView" destination="I88-d6-kPa" id="v38-vo-30t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fe-oR-sf0" userLabel="First Responder" sceneMemberID="firstResponder"/>

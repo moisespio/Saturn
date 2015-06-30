@@ -8,11 +8,16 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var addNewSensor: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var items = ["Sobre", "FAQ", "Ajuda", "Contato"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         
         var darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurView = UIVisualEffectView(effect: darkBlur)
@@ -20,25 +25,31 @@ class MenuViewController: UIViewController {
         blurView.frame = self.view.bounds
         self.view.addSubview(blurView)
 
-        addNewSensor.layer.borderWidth = 1
+        addNewSensor.layer.borderWidth = 2
         addNewSensor.layer.borderColor = UIColor.whiteColor().CGColor
-        addNewSensor.layer.cornerRadius = 5
+//        addNewSensor.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count;
     }
-    */
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: MenuTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! MenuTableViewCell
+        
+        cell.menuLabel.text = self.items[indexPath.row]
+        cell.selectionStyle = .None
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("DetailViewController", sender: nil)
+    }
+
 
 }

@@ -10,6 +10,7 @@
 		80CC90721B4167A000FA4096 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC90711B4167A000FA4096 /* DetailViewController.swift */; };
 		80CC90741B4178BD00FA4096 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC90731B4178BC00FA4096 /* SlideMenuController.swift */; };
 		80CC90761B417A9A00FA4096 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC90751B417A9A00FA4096 /* MenuViewController.swift */; };
+		80D106521B42B6D10095C87C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D106511B42B6D10095C87C /* MenuTableViewCell.swift */; };
 		80E272861B3D8DB300ABA11C /* SensorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E272851B3D8DB300ABA11C /* SensorsTableViewCell.swift */; };
 		80FBFAEE1B383F0B0050AD95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */; };
 		80FBFAF31B383F0B0050AD95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FBFAF11B383F0B0050AD95 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		80CC90711B4167A000FA4096 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		80CC90731B4178BC00FA4096 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		80CC90751B417A9A00FA4096 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		80D106511B42B6D10095C87C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		80E272851B3D8DB300ABA11C /* SensorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsTableViewCell.swift; sourceTree = "<group>"; };
 		80FBFAE81B383F0B0050AD95 /* Saturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FBFAEC1B383F0B0050AD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,9 +143,11 @@
 				EFABD4941B3AE2EF006DA439 /* Fonts */,
 				D5A949CC1B39934F00E81E71 /* Framework */,
 				80FBFAED1B383F0B0050AD95 /* AppDelegate.swift */,
-				80CC90751B417A9A00FA4096 /* MenuViewController.swift */,
-				80CC90731B4178BC00FA4096 /* SlideMenuController.swift */,
 				D58513391B3C503600FAB2B7 /* UIViewControllerExtensions.swift */,
+				80CC90751B417A9A00FA4096 /* MenuViewController.swift */,
+				80D106511B42B6D10095C87C /* MenuTableViewCell.swift */,
+				80CC90731B4178BC00FA4096 /* SlideMenuController.swift */,
+				D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */,
 				80E272851B3D8DB300ABA11C /* SensorsTableViewCell.swift */,
 				EF99864E1B3C3566000E479C /* ScanViewController.swift */,
 				EF99864F1B3C3566000E479C /* SensorViewController.swift */,
@@ -152,7 +156,6 @@
 				80FBFAF41B383F0B0050AD95 /* Images.xcassets */,
 				80FBFAF61B383F0B0050AD95 /* LaunchScreen.xib */,
 				80FBFAEB1B383F0B0050AD95 /* Supporting Files */,
-				D58513331B3AEDD700FAB2B7 /* SensorsViewController.swift */,
 				D58513371B3C3B4000FAB2B7 /* SensorModel.swift */,
 			);
 			path = Saturn;
@@ -327,6 +330,7 @@
 				EF9986501B3C3566000E479C /* ScanViewController.swift in Sources */,
 				80E272861B3D8DB300ABA11C /* SensorsTableViewCell.swift in Sources */,
 				80CC90721B4167A000FA4096 /* DetailViewController.swift in Sources */,
+				80D106521B42B6D10095C87C /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
