@@ -84,8 +84,9 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailViewController: DetailViewController = segue.destinationViewController as? DetailViewController {
-            detailViewController.sensorIdentifier.text = items[selectedRow].sensorName
-            detailViewController.sensorLocation.text = items[selectedRow].sensorDescription
+            
+            detailViewController.sensorNameText = items[selectedRow].sensorName!
+            detailViewController.sensorLocationText = items[selectedRow].sensorDescription!
         }
     }
 }

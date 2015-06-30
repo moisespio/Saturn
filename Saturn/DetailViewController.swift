@@ -11,10 +11,16 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var sensorIdentifier: UILabel!
     @IBOutlet weak var sensorLocation: UILabel!
+    
+    var sensorNameText = ""
+    var sensorLocationText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
+        
+        sensorIdentifier.text = sensorNameText
+        sensorLocation.text = sensorLocationText
     }
     
     override func prefersStatusBarHidden() -> Bool {
