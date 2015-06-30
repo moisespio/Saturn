@@ -9,6 +9,8 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var sensorIdentifier: UILabel!
+    @IBOutlet weak var sensorLocation: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,6 +12,7 @@ import Parse
 class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var items: [SensorModel] = []
+    var selectedRow = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedRow = indexPath.row
         performSegueWithIdentifier("DetailViewController", sender: nil)
     }
     
@@ -77,6 +79,13 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 items.removeAtIndex(indexPath.row)
                 tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let detailViewController: DetailViewController = segue.destinationViewController as? DetailViewController {
+            detailViewController.sensorIdentifier.text = items[selectedRow].sensorName
+            detailViewController.sensorLocation.text = items[selectedRow].sensorDescription
         }
     }
 }

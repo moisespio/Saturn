@@ -12,6 +12,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var addNewSensor: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func addSensor(sender: UIButton) {
+        self.slideMenuController()?.closeRight()
+    }
     var items = ["Sobre", "FAQ", "Ajuda", "Contato"]
 
     override func viewDidLoad() {
@@ -50,6 +53,4 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("DetailViewController", sender: nil)
     }
-
-
 }
