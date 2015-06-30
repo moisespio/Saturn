@@ -28,12 +28,14 @@ class SensorModel: NSObject {
         self.sensorCode = sensorParseObject["code"] as? String
         self.sensorName = sensorParseObject["name"] as? String
         self.sensorDescription = sensorParseObject["description"] as? String
+        self.sensorStatus = sensorParseObject["status"] as! Int
     }
     
     var sensorParseObject : PFObject?
     var sensorCode : String?
     var sensorName : String?
     var sensorDescription : String?
+    var sensorStatus : Int = 0
     
     ///
     /// Usage:
@@ -81,7 +83,7 @@ class SensorModel: NSObject {
     /// Usage:
     ///         SensorModel.getSensors {
     ///             (sensorList: Array<SensorModel>?) -> Void in
-    ///                 if (sensorList != nil) {
+    ///                 if let sensorList = sensorList {
     ///                     //your code here
     ///                 }
     ///        }
@@ -107,6 +109,25 @@ class SensorModel: NSObject {
             }
         }
         
+    }
+    
+    static func getSensorsSync() -> Array<SensorModel>?
+    {
+        var query = PFQuery(className:"Sensor")
+        //        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
+        var sensorList = Array<SensorModel>()
+        if let objects = query.findObjects()
+        {
+            
+            println("Successfully retrieved \(objects.count) sensors.")
+            if let sensors = objects as? [PFObject] {
+                for sensor in sensors {
+                    let sensorModel = SensorModel(sensorParseObject: sensor)
+                    sensorList.append(sensorModel)
+                }
+            }
+        }
+        return sensorList
     }
     
 }
