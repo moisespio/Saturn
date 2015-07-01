@@ -27,7 +27,6 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
 
-//        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
@@ -42,7 +41,6 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        performSegueWithIdentifier("ScanViewController", sender: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -27,7 +27,6 @@ public struct SlideMenuOptions {
 public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     
     override public func prefersStatusBarHidden() -> Bool {
-        print("chamou")
         return true
     }
 
