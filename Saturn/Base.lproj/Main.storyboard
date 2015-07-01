@@ -424,6 +424,9 @@
                                                     <fontDescription key="fontDescription" name="SanFranciscoText-Semibold" family="San Francisco Text" pointSize="14"/>
                                                     <color key="textColor" red="0.52156862745098043" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="20" width="71" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bh-aS-4PG">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -432,6 +435,9 @@
                                                     <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="12"/>
                                                     <color key="textColor" red="0.52156862749999999" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="34" width="48" height="15"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
