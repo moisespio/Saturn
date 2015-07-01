@@ -27,7 +27,6 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
 
-//        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
@@ -42,7 +41,6 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        performSegueWithIdentifier("ScanViewController", sender: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,10 +72,19 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             if let tv = self.tableView {
-                var sensor: PFObject = self.items[indexPath.row].sensorParseObject!
-                sensor.deleteInBackground()
-                items.removeAtIndex(indexPath.row)
-                tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                var alert = UIAlertController(title: "Remover sensor", message: "Deseja realmente descartar este sensor?", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Confirmar", style: .Destructive, handler: { action in
+                    var sensor: PFObject = self.items[indexPath.row].sensorParseObject!
+                    sensor.deleteInBackground()
+                    self.items.removeAtIndex(indexPath.row)
+                    tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancelar", style: .Default, handler: nil))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }

@@ -87,10 +87,10 @@ class SensorModel: NSObject {
     ///                     //your code here
     ///                 }
     ///        }
-    static func getSensors(function: (Array<SensorModel>?) -> Void) -> Void
-    {
+    static func getSensors(function: (Array<SensorModel>?) -> Void) -> Void {
         var query = PFQuery(className:"Sensor")
-        //        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
+        query.whereKey("installation", equalTo:PFInstallation.currentInstallation())
+
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             var sensorList = Array<SensorModel>()
@@ -114,7 +114,8 @@ class SensorModel: NSObject {
     static func getSensorsSync() -> Array<SensorModel>?
     {
         var query = PFQuery(className:"Sensor")
-        //        query.whereKey("installation", equalTo:PFInstallation.currentInstallation().objectId!)
+        query.whereKey("installation", equalTo:PFInstallation.currentInstallation())
+        
         var sensorList = Array<SensorModel>()
         if let objects = query.findObjects()
         {

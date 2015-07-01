@@ -34,12 +34,10 @@ class SensorViewController: UIViewController {
     }
     
     @IBAction func saveSensor(sender: UIButton) {
-        println("Save sensor called")
-        
         let sensorName = codeField.text
         
         if sensorName == "" || sensorName == nil {
-            var alertView:UIAlertView = UIAlertView(title: ":(", message:"Você precisa dar um nome a este sensor.", delegate: nil, cancelButtonTitle: "Ok")
+            var alertView:UIAlertView = UIAlertView(title: "Novo Sensor", message:"Você precisa dar um nome a este sensor.", delegate: nil, cancelButtonTitle: "Ok")
             alertView.show()
             return
         }
@@ -51,7 +49,7 @@ class SensorViewController: UIViewController {
             if (success) {
                 self.performSegueWithIdentifier("sensorsViewController", sender: nil)
             } else {
-                var alertView:UIAlertView = UIAlertView(title: ":(", message:"Algo errado aconteceu. Tente novamente.", delegate: nil, cancelButtonTitle: "Ok")
+                var alertView:UIAlertView = UIAlertView(title: "Desculpe", message:"Algo errado aconteceu. Tente novamente.", delegate: nil, cancelButtonTitle: "Ok")
                 alertView.show()
             }
         }
