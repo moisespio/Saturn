@@ -27,7 +27,7 @@ class SensorModel: NSObject {
         self.sensorParseObject = sensorParseObject
         self.sensorCode = sensorParseObject["code"] as? String
         self.sensorName = sensorParseObject["name"] as? String
-        self.sensorDescription = sensorParseObject["description"] as? String
+        self.sensorDescription = sensorParseObject["description"] as? String    
         self.sensorStatus = sensorParseObject["status"] as! Int
     }
     
