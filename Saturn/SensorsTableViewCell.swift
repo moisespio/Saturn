@@ -11,6 +11,7 @@ import UIKit
 class SensorsTableViewCell: UITableViewCell {
     @IBOutlet weak var identifier: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var statusIcon: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

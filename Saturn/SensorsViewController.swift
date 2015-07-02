@@ -13,6 +13,11 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     var items: [SensorModel] = []
     var selectedRow = 0
+    var sensorGasLevelIcon = [
+        "big-ok-icon",
+        "big-warning-icon",
+        "big-danger-icon"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +59,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         var cell: SensorsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! SensorsTableViewCell
         cell.identifier.text = self.items[indexPath.row].sensorName
         cell.location.text = self.items[indexPath.row].sensorDescription
+        cell.statusIcon.image = UIImage(named: sensorGasLevelIcon[self.items[indexPath.row].sensorStatus])
         cell.selectionStyle = .None
 
         return cell

@@ -493,6 +493,7 @@
                                         <connections>
                                             <outlet property="identifier" destination="sBo-Im-hzg" id="gZi-Fj-2Ll"/>
                                             <outlet property="location" destination="4Bh-aS-4PG" id="52I-nv-WLS"/>
+                                            <outlet property="statusIcon" destination="vK2-Ke-D3M" id="1NW-Aa-L1D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
