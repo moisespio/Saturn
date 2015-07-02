@@ -24,6 +24,13 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        updateSensors()
+        
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateSensors"), userInfo: nil, repeats: true)
+    }
+    
+    func updateSensors(){
+        println("udpateSensors")
         SensorModel.getSensors {
             (sensorList: Array<SensorModel>?) -> Void in
             if (sensorList != nil) {
