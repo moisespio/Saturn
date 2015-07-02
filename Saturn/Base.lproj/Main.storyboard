@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wtd-0Y-7fp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -425,7 +425,7 @@
                                                     <color key="textColor" red="0.52156862745098043" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="54" y="20" width="71" height="17"/>
+                                                        <rect key="frame" x="54" y="20" width="62" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bh-aS-4PG">
@@ -436,7 +436,7 @@
                                                     <color key="textColor" red="0.52156862749999999" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="54" y="34" width="48" height="15"/>
+                                                        <rect key="frame" x="54" y="34" width="47" height="14"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -678,6 +678,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="msl-MX-2eG"/>
                     <connections>
+                        <outlet property="gasLevelLabel" destination="02a-sq-yzh" id="rDh-gS-0Lc"/>
+                        <outlet property="icon" destination="TI0-fJ-zxL" id="dpT-GL-Iy3"/>
                         <outlet property="sensorIdentifier" destination="5BI-MN-3dB" id="0oU-kR-dTc"/>
                         <outlet property="sensorLocation" destination="G8z-th-x4O" id="ZoS-7C-xfy"/>
                     </connections>
