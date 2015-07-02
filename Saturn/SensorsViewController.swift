@@ -107,6 +107,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             detailViewController.sensorNameText = items[selectedRow].sensorName!
             detailViewController.sensorLocationText = items[selectedRow].sensorDescription!
             detailViewController.sensorStatus = items[selectedRow].sensorStatus
+            detailViewController.sensorObjectId = items[selectedRow].sensorParseObject!.objectId!
         }
     }
 }

@@ -56,6 +56,13 @@ class SensorViewController: UIViewController {
 
     }
     
+    func updateSensor()
+    {
+        UIView.animateWithDuration(0.5, animations: {
+            
+        })
+    }
+    
     func tappedCloseButton(sender: UIViewController!) {
         dismissViewControllerAnimated(true, completion: nil)
     }

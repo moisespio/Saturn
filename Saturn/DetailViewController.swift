@@ -13,10 +13,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var sensorLocation: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var gasLevelLabel: UILabel!
+    @IBOutlet weak var constraintUpdateView: NSLayoutConstraint!
     
     var sensorStatus = 0
     var sensorNameText = ""
     var sensorLocationText = ""
+    var sensorObjectId = ""
     var sensorGasLevelIcon = [
         "big-ok-icon",
         "big-warning-icon",
@@ -28,7 +30,7 @@ class DetailViewController: UIViewController {
         "Pequeno vazamento detectado",
         "Grande vazamento detectado"
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addSaturnNavigationBarWithCloseButton("tappedCloseButton:")
@@ -38,13 +40,42 @@ class DetailViewController: UIViewController {
         
         self.icon.image = UIImage(named: sensorGasLevelIcon[sensorStatus])
         self.gasLevelLabel.text = sensorGasLevelLabel[sensorStatus]
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateSensor()
+    }
+    
+    func updateSensor()
+    {
+        SensorModel.getSensor(self.sensorObjectId) {
+            (sensorModel: SensorModel?) -> Void in
+            if (sensorModel != nil) {
+                self.sensorIdentifier.text = sensorModel!.sensorName
+                self.sensorLocation.text = sensorModel!.sensorDescription
+                self.icon.image = UIImage(named: self.sensorGasLevelIcon[sensorModel!.sensorStatus])
+                self.gasLevelLabel.text = self.sensorGasLevelLabel[sensorModel!.sensorStatus]
+            }
+        }
         
+        UIView.animateWithDuration(10, animations: {
+            self.constraintUpdateView.constant = self.view.frame.size.width
+            self.view.layoutIfNeeded() ?? ()
+            }, completion: {
+                (value: Bool) in
+                if (value){
+                    self.constraintUpdateView.constant = 0
+                    self.view.layoutIfNeeded() ?? ()
+                    self.updateSensor()
+                }
+        })
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -52,5 +83,5 @@ class DetailViewController: UIViewController {
     func tappedCloseButton(sender: UIViewController!) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
 }

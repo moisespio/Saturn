@@ -112,6 +112,29 @@ class SensorModel: NSObject {
         }
         
     }
+
+    static func getSensor(objectId : String, function: (SensorModel?) -> Void) -> Void {
+        var query = PFQuery(className:"Sensor")
+        query.whereKey("objectId", equalTo:objectId)
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if (error == nil) {
+                var sensorModel : SensorModel?
+                println("Successfully retrieved sensor.")
+                if let sensors = objects as? [PFObject] {
+                    for sensor in sensors {
+                        sensorModel = SensorModel(sensorParseObject: sensor)
+                    }
+                }
+                function(sensorModel)
+            } else {
+                println("Error: \(error!) \(error!.userInfo!)")
+                function(nil)
+            }
+        }
+        
+    }
     
     static func getSensorsSync() -> Array<SensorModel>?
     {
