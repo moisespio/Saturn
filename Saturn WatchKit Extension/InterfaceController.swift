@@ -38,13 +38,13 @@ class InterfaceController: WKInterfaceController {
             
             switch sensorList[index].sensorStatus {
             case 0:
-                sensorRow.imgStatus.setImage(UIImage(named: "small-ok-icon"))
+                sensorRow.imgStatus.setImage(UIImage(named: "big-ok-icon"))
             case 1:
-                sensorRow.imgStatus.setImage(UIImage(named: "small-warning-icon"))
+                sensorRow.imgStatus.setImage(UIImage(named: "big-warning-icon"))
             case 2:
-                sensorRow.imgStatus.setImage(UIImage(named: "small-problem-icon"))
+                sensorRow.imgStatus.setImage(UIImage(named: "big-danger-icon"))
             default:
-                sensorRow.imgStatus.setImage(UIImage(named: "small-ok-icon"))
+                sensorRow.imgStatus.setImage(UIImage(named: "big-ok-icon"))
             }
         }
     }
@@ -54,6 +54,11 @@ class InterfaceController: WKInterfaceController {
         var dic = NSDictionary(object: "querySensors", forKey: "ACTION")
         
         WKInterfaceController.openParentApplication(dic as [NSObject : AnyObject], reply: { (replyValues, error) -> Void in
+            
+            if (replyValues == nil)
+            {
+                return;
+            }
             
             if let sensors = replyValues["SENSORS"] as? NSArray
             {
