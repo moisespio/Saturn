@@ -13,12 +13,13 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     var items: [SensorModel] = []
     var selectedRow = 0
+    var firstTime = true
     var sensorGasLevelIcon = [
         "big-ok-icon",
         "big-warning-icon",
         "big-danger-icon"
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +37,12 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (sensorList != nil) {
                 self.items = sensorList!
                 self.tableView.reloadData()
+                
+                if ((self.items.count == 1) && (self.firstTime)){
+                    self.firstTime = false
+                    self.selectedRow = 0
+                    self.performSegueWithIdentifier("DetailViewController", sender: nil)
+                }
             }
         }
     }
@@ -68,7 +75,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.location.text = self.items[indexPath.row].sensorDescription
         cell.statusIcon.image = UIImage(named: sensorGasLevelIcon[self.items[indexPath.row].sensorStatus])
         cell.selectionStyle = .None
-
+        
         return cell
     }
     
@@ -91,7 +98,7 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     sensor.deleteInBackground()
                     self.items.removeAtIndex(indexPath.row)
                     tv.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-
+                    
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: .Default, handler: nil))
