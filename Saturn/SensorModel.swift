@@ -68,6 +68,8 @@ class SensorModel: NSObject {
         sensor["name"] = sensorName
         sensor["description"] = sensorDescription
         sensor["installation"] = PFInstallation.currentInstallation()
+        sensor["status"] = sensorStatus
+
         sensor.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {

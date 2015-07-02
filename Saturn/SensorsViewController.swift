@@ -26,12 +26,9 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.tableView.reloadData()
             }
         }
-
-        self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
-    func tappedMenuButton(sender: UIButton!)
-    {
+    func tappedMenuButton(sender: UIButton!) {
         self.slideMenuController()?.openRight()
     }
     
@@ -41,6 +38,8 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.addSaturnNavigationBarWithMenuButton("tappedMenuButton:")
     }
     
     override func didReceiveMemoryWarning() {
