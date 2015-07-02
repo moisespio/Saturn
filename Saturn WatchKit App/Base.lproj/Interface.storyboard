@@ -40,32 +40,32 @@
             <objects>
                 <controller id="WkU-GA-nLl" customClass="InterfaceController" customModule="Saturn_WatchKit_Extension">
                     <items>
-                        <group width="1" height="150.5" alignment="left" layout="vertical" id="M4b-sC-k62">
+                        <group width="1" height="26.5" alignment="left" layout="vertical" id="M4b-sC-k62">
                             <items>
                                 <label width="136" height="24.5" alignment="left" text="Sensores" textAlignment="center" id="dMp-Pa-yOw">
                                     <color key="textColor" red="0.99999928469999999" green="0.99997442960000005" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
-                                <table alignment="left" id="qCF-0r-ROM">
-                                    <items>
-                                        <tableRow identifier="SensorRowType" selectable="NO" id="EBE-V9-6rD" customClass="SensorRowType" customModule="Saturn_WatchKit_Extension">
-                                            <group key="rootItem" width="1" height="30" alignment="left" id="P7n-7J-7Fg">
-                                                <items>
-                                                    <imageView width="15" height="15" alignment="left" verticalAlignment="center" image="small-ok-icon" id="dPS-B6-u3a"/>
-                                                    <label width="107.5" height="30" alignment="center" verticalAlignment="center" text=" janela janel" textAlignment="left" numberOfLines="0" id="FLo-AI-nnh">
-                                                        <fontDescription key="font" type="system" pointSize="14"/>
-                                                    </label>
-                                                </items>
-                                            </group>
-                                            <connections>
-                                                <outlet property="imgStatus" destination="dPS-B6-u3a" id="Y80-TV-iAg"/>
-                                                <outlet property="lblSensor" destination="FLo-AI-nnh" id="cXw-nF-QgD"/>
-                                            </connections>
-                                        </tableRow>
-                                    </items>
-                                </table>
                             </items>
                         </group>
+                        <table alignment="left" id="qCF-0r-ROM">
+                            <items>
+                                <tableRow identifier="SensorRowType" selectable="NO" id="EBE-V9-6rD" customClass="SensorRowType" customModule="Saturn_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="30" alignment="left" id="P7n-7J-7Fg">
+                                        <items>
+                                            <imageView width="15" height="15" alignment="left" verticalAlignment="center" image="small-ok-icon" id="dPS-B6-u3a"/>
+                                            <label width="107.5" height="30" alignment="center" verticalAlignment="center" text=" janela janel" textAlignment="left" numberOfLines="0" id="FLo-AI-nnh">
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imgStatus" destination="dPS-B6-u3a" id="Y80-TV-iAg"/>
+                                        <outlet property="lblSensor" destination="FLo-AI-nnh" id="cXw-nF-QgD"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
                         <outlet property="sensorTable" destination="qCF-0r-ROM" id="BRJ-Rs-e87"/>
