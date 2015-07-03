@@ -74,6 +74,16 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         self.addVideoPreviewLayer()
         self.maskQRCode()
         self.addLabelToView(blurView)
+        
+        let speechSynthesizer = AVSpeechSynthesizer()
+        
+        let speechUtterance = AVSpeechUtterance(string: "Insira o código localizado na parte superior do seu sensor.")
+        
+        speechUtterance.rate = 0.1
+        speechUtterance.pitchMultiplier = 1
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        
+        speechSynthesizer.speakUtterance(speechUtterance)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

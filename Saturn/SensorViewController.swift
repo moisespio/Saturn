@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import AVFoundation
 
 class SensorViewController: UIViewController {
 
@@ -30,6 +31,16 @@ class SensorViewController: UIViewController {
         border.borderWidth = width
         codeField.layer.addSublayer(border)
         codeField.layer.masksToBounds = true
+        
+        let speechSynthesizer = AVSpeechSynthesizer()
+        
+        let speechUtterance = AVSpeechUtterance(string: "Insira um identificador para este sensor. Por exemplo: cozinha.")
+        
+        speechUtterance.rate = 0.1
+        speechUtterance.pitchMultiplier = 1
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        
+        speechSynthesizer.speakUtterance(speechUtterance)
 
     }
     

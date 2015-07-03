@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var sensorIdentifier: UILabel!
@@ -40,6 +41,16 @@ class DetailViewController: UIViewController {
         
         self.icon.image = UIImage(named: sensorGasLevelIcon[sensorStatus])
         self.gasLevelLabel.text = sensorGasLevelLabel[sensorStatus]
+        
+        let speechSynthesizer = AVSpeechSynthesizer()
+        
+        let speechUtterance = AVSpeechUtterance(string: "Você selecionou o seguinte sensor: Cozinha. Nenhum vazamento detectado.")
+        
+        speechUtterance.rate = 0.1
+        speechUtterance.pitchMultiplier = 1
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        
+        speechSynthesizer.speakUtterance(speechUtterance)
     }
     
     override func viewDidAppear(animated: Bool) {

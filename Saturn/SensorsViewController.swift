@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import AVFoundation
 
-class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var items: [SensorModel] = []
     var selectedRow = 0
@@ -24,10 +25,19 @@ class SensorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        
         updateSensors()
         
         NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateSensors"), userInfo: nil, repeats: true)
+        
+        let speechSynthesizer = AVSpeechSynthesizer()
+
+        let speechUtterance = AVSpeechUtterance(string: "Listagem de sensores. Nenhum vazamento detectado.")
+
+        speechUtterance.rate = 0.1
+        speechUtterance.pitchMultiplier = 1
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+
+        speechSynthesizer.speakUtterance(speechUtterance)
     }
     
     func updateSensors(){
