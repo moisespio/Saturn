@@ -44,13 +44,19 @@ class DetailViewController: UIViewController {
         
         let speechSynthesizer = AVSpeechSynthesizer()
         
-        let speechUtterance = AVSpeechUtterance(string: "Você selecionou o seguinte sensor: Cozinha. Nenhum vazamento detectado.")
-        
-        speechUtterance.rate = 0.1
-        speechUtterance.pitchMultiplier = 1
-        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-        
-        speechSynthesizer.speakUtterance(speechUtterance)
+        SensorModel.getSensor(self.sensorObjectId) {
+            (sensorModel: SensorModel?) -> Void in
+            if (sensorModel != nil) {
+                let speechUtterance = AVSpeechUtterance(string: "Você selecionou o seguinte sensor:" + sensorModel!.sensorName! + ". " + self.sensorGasLevelLabel[sensorModel!.sensorStatus] + ".")
+                
+                speechUtterance.rate = 0.1
+                speechUtterance.pitchMultiplier = 1
+                speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                
+                speechSynthesizer.speakUtterance(speechUtterance)
+            }
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
