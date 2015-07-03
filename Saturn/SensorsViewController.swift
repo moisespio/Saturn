@@ -29,15 +29,31 @@ class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITa
         
         NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateSensors"), userInfo: nil, repeats: true)
         
-        let speechSynthesizer = AVSpeechSynthesizer()
+        SensorModel.getSensors {
+            (sensorList: Array<SensorModel>?) -> Void in
+            if (sensorList != nil) {
+                var sensors: [SensorModel] = []
+                var speechStr = "Listagem de sensores. Nenhum vazamento detectado"
 
-        let speechUtterance = AVSpeechUtterance(string: "Listagem de sensores. Nenhum vazamento detectado.")
-
-        speechUtterance.rate = 0.1
-        speechUtterance.pitchMultiplier = 1
-        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-
-        speechSynthesizer.speakUtterance(speechUtterance)
+                sensors = sensorList!
+                
+                for var index = 0; index < sensors.count; ++index {
+                    if (sensors[index].sensorStatus > 0) {
+                        speechStr = "Listagem de sensores. Um vazamento foi detectado"
+                    }
+                }
+                
+                let speechSynthesizer = AVSpeechSynthesizer()
+                
+                let speechUtterance = AVSpeechUtterance(string: speechStr)
+                
+                speechUtterance.rate = 0.1
+                speechUtterance.pitchMultiplier = 1
+                speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                
+                speechSynthesizer.speakUtterance(speechUtterance)
+            }
+        }
     }
     
     func updateSensors(){
