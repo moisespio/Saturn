@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UITextFieldDelegate {
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var codeField: UITextField!
@@ -22,6 +22,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     var captureDevice : AVCaptureDevice?
     var qrCodeRead : Bool!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,11 +34,27 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        self.codeField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
     }
     
     func tappedCloseButton(sender: UIButton!)
     {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldDidChange(codeField: UITextField) {
+        if count(codeField.text) != 10 {
+            return
+        }
+        
+        if startsWith(codeField.text, "ST") {
+            self.performSegueWithIdentifier("SensorViewController", sender: codeField.text)
+        } else {
+            codeField.text = ""
+//            codeField.endEditing(true)
+            codeField.placeholder = "Código inválido"
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {
