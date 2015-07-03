@@ -48,11 +48,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             return
         }
         
-        if startsWith(codeField.text, "ST") {
+        if startsWith(codeField.text, "ST") || startsWith(codeField.text, "st") {
             self.performSegueWithIdentifier("SensorViewController", sender: codeField.text)
         } else {
             codeField.text = ""
-//            codeField.endEditing(true)
             codeField.placeholder = "Código inválido"
         }
     }
