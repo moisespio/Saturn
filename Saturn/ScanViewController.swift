@@ -30,7 +30,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         let font = UIFont(name: "SanFranciscoText-Regular", size: 14)!
         let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName : font]
-        codeField.attributedPlaceholder = NSAttributedString(string: "Ou insira o código manualmente", attributes:attributes)
+        codeField.attributedPlaceholder = NSAttributedString(string: "Or enter the code manually", attributes:attributes)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -52,7 +52,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             self.performSegueWithIdentifier("SensorViewController", sender: codeField.text)
         } else {
             codeField.text = ""
-            codeField.placeholder = "Código inválido"
+            codeField.placeholder = "Invalid Code"
         }
     }
     
@@ -77,11 +77,11 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         let speechSynthesizer = AVSpeechSynthesizer()
         
-        let speechUtterance = AVSpeechUtterance(string: "Insira o código localizado na parte superior do seu sensor.")
+        let speechUtterance = AVSpeechUtterance(string: "Enter the code located on the top of your sensor.")
         
         speechUtterance.rate = 0.1
         speechUtterance.pitchMultiplier = 1
-        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         
         speechSynthesizer.speakUtterance(speechUtterance)
     }
@@ -171,7 +171,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         label.numberOfLines = 2
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.font = UIFont(name: "SanFranciscoText-Regular", size: 16)
-        label.text = "Aponte sua câmera para o QRCode localizado no sensor"
+        label.text = "Point your camera at the QR Code located on the sensor"
         label.textColor = UIColor.whiteColor()
         view.addSubview(label)
     }
@@ -181,7 +181,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         var count = metadataObjects.count
         
         if metadataObjects == nil || count < 1 {
-            println("No qr code is detected")
+            println("No QR Code was detected")
             return
         }
         

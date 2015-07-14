@@ -15,7 +15,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func addSensor(sender: UIButton) {
         self.slideMenuController()?.closeRight()
     }
-    var items = ["Sobre", "FAQ", "Ajuda", "Contato"]
+    var items = ["About", "FAQ", "Help", "Contact"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

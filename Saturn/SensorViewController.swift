@@ -34,11 +34,11 @@ class SensorViewController: UIViewController {
         
         let speechSynthesizer = AVSpeechSynthesizer()
         
-        let speechUtterance = AVSpeechUtterance(string: "Insira um identificador para este sensor. Por exemplo: cozinha.")
+        let speechUtterance = AVSpeechUtterance(string: "Give a name for this sensor. E.g. kitchen")
         
         speechUtterance.rate = 0.1
         speechUtterance.pitchMultiplier = 1
-        speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         
         speechSynthesizer.speakUtterance(speechUtterance)
 
@@ -48,7 +48,7 @@ class SensorViewController: UIViewController {
         let sensorName = codeField.text
         
         if sensorName == "" || sensorName == nil {
-            var alertView:UIAlertView = UIAlertView(title: "Novo Sensor", message:"Você precisa dar um nome a este sensor.", delegate: nil, cancelButtonTitle: "Ok")
+            var alertView:UIAlertView = UIAlertView(title: "New Sensor", message:"You need to give a name for this sensor.", delegate: nil, cancelButtonTitle: "Ok")
             alertView.show()
             return
         }
@@ -60,7 +60,7 @@ class SensorViewController: UIViewController {
             if (success) {
                 self.performSegueWithIdentifier("sensorsViewController", sender: nil)
             } else {
-                var alertView:UIAlertView = UIAlertView(title: "Desculpe", message:"Algo errado aconteceu. Tente novamente.", delegate: nil, cancelButtonTitle: "Ok")
+                var alertView:UIAlertView = UIAlertView(title: "Sorry", message:"ASomething wrong happened.", delegate: nil, cancelButtonTitle: "Ok")
                 alertView.show()
             }
         }

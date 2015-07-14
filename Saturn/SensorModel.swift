@@ -18,7 +18,7 @@ class SensorModel: NSObject {
         if (sensorDescription != nil && sensorDescription != "") {
             self.sensorDescription = sensorDescription
         } else {
-            self.sensorDescription = "Descrição padrão"
+            self.sensorDescription = "Default Description"
         }
     }
     

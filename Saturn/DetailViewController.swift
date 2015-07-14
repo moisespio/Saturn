@@ -27,9 +27,9 @@ class DetailViewController: UIViewController {
     ]
     
     var sensorGasLevelLabel = [
-        "Nenhum vazamento detectado",
-        "Pequeno vazamento detectado",
-        "Grande vazamento detectado"
+        "No leak detected",
+        "Small leak detected",
+        "Big leak detected"
     ]
     
     override func viewDidLoad() {
@@ -47,11 +47,11 @@ class DetailViewController: UIViewController {
         SensorModel.getSensor(self.sensorObjectId) {
             (sensorModel: SensorModel?) -> Void in
             if (sensorModel != nil) {
-                let speechUtterance = AVSpeechUtterance(string: "Você selecionou o seguinte sensor:" + sensorModel!.sensorName! + ". " + self.sensorGasLevelLabel[sensorModel!.sensorStatus] + ".")
+                let speechUtterance = AVSpeechUtterance(string: "You have selected the following sensor. " + sensorModel!.sensorName! + ". " + self.sensorGasLevelLabel[sensorModel!.sensorStatus] + ".")
                 
                 speechUtterance.rate = 0.1
                 speechUtterance.pitchMultiplier = 1
-                speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
                 
                 speechSynthesizer.speakUtterance(speechUtterance)
             }

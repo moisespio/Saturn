@@ -33,13 +33,13 @@ class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITa
             (sensorList: Array<SensorModel>?) -> Void in
             if (sensorList != nil) {
                 var sensors: [SensorModel] = []
-                var speechStr = "Listagem de sensores. Nenhum vazamento detectado"
+                var speechStr = "Sensors Listing. No leak detected."
 
                 sensors = sensorList!
                 
                 for var index = 0; index < sensors.count; ++index {
                     if (sensors[index].sensorStatus > 0) {
-                        speechStr = "Listagem de sensores. Um vazamento foi detectado"
+                        speechStr = "Sensors Listing. A leak was detected"
                     }
                 }
                 
@@ -49,7 +49,7 @@ class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITa
                 
                 speechUtterance.rate = 0.1
                 speechUtterance.pitchMultiplier = 1
-                speechUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
                 
                 speechSynthesizer.speakUtterance(speechUtterance)
             }
@@ -117,9 +117,9 @@ class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITa
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             if let tv = self.tableView {
-                var alert = UIAlertController(title: "Remover sensor", message: "Deseja realmente descartar este sensor?", preferredStyle: UIAlertControllerStyle.Alert)
+                var alert = UIAlertController(title: "Delete Sensor", message: "Do you really want to delete this sensor?", preferredStyle: UIAlertControllerStyle.Alert)
                 
-                alert.addAction(UIAlertAction(title: "Confirmar", style: .Destructive, handler: { action in
+                alert.addAction(UIAlertAction(title: "Yes", style: .Destructive, handler: { action in
                     var sensor: PFObject = self.items[indexPath.row].sensorParseObject!
                     sensor.deleteInBackground()
                     self.items.removeAtIndex(indexPath.row)
@@ -127,7 +127,7 @@ class SensorsViewController: UIViewController, AVSpeechSynthesizerDelegate, UITa
                     
                 }))
                 
-                alert.addAction(UIAlertAction(title: "Cancelar", style: .Default, handler: nil))
+                alert.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
                 
                 self.presentViewController(alert, animated: true, completion: nil)
             }
