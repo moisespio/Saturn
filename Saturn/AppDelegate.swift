@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         println("Couldn't register: \(error)")
+        PFInstallation.currentInstallation().saveInBackground()
     }
     
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
@@ -64,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var array = NSMutableArray()
         var retValues = NSMutableDictionary()
         retValues.setValue(array, forKey: "SENSORS")
-
+        
         if let sensorList = SensorModel.getSensorsSync()
         {
             for sensor in sensorList {

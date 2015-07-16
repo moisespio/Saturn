@@ -27,7 +27,7 @@ class SensorModel: NSObject {
         self.sensorParseObject = sensorParseObject
         self.sensorCode = sensorParseObject["code"] as? String
         self.sensorName = sensorParseObject["name"] as? String
-        self.sensorDescription = sensorParseObject["description"] as? String    
+        self.sensorDescription = sensorParseObject["description"] as? String
         self.sensorStatus = sensorParseObject["status"] as! Int
     }
     
@@ -56,6 +56,12 @@ class SensorModel: NSObject {
     ///     }
     func saveSensor(function: (Bool, String) -> Void) -> Void
     {
+        if (PFInstallation.currentInstallation().isDirty()) {
+            println("dirty installation")
+            function(false, "Occurred a error. Please try again in a while.")
+            return
+        }
+        
         var sensor : PFObject
         
         if ((self.sensorParseObject) != nil) {
@@ -69,7 +75,7 @@ class SensorModel: NSObject {
         sensor["description"] = sensorDescription
         sensor["installation"] = PFInstallation.currentInstallation()
         sensor["status"] = sensorStatus
-
+        
         sensor.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
@@ -91,8 +97,16 @@ class SensorModel: NSObject {
     ///        }
     static func getSensors(function: (Array<SensorModel>?) -> Void) -> Void {
         var query = PFQuery(className:"Sensor")
+        
+        if (PFInstallation.currentInstallation().isDirty()) {
+            println("dirty installation")
+            function(nil)
+            return
+        }
+        
+        
         query.whereKey("installation", equalTo:PFInstallation.currentInstallation())
-
+        
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             var sensorList = Array<SensorModel>()
@@ -112,7 +126,7 @@ class SensorModel: NSObject {
         }
         
     }
-
+    
     static func getSensor(objectId : String, function: (SensorModel?) -> Void) -> Void {
         var query = PFQuery(className:"Sensor")
         query.whereKey("objectId", equalTo:objectId)
@@ -139,6 +153,12 @@ class SensorModel: NSObject {
     static func getSensorsSync() -> Array<SensorModel>?
     {
         var query = PFQuery(className:"Sensor")
+        
+        if (PFInstallation.currentInstallation().isDirty()) {
+            println("dirty installation")
+            return
+        }
+        
         query.whereKey("installation", equalTo:PFInstallation.currentInstallation())
         
         var sensorList = Array<SensorModel>()
