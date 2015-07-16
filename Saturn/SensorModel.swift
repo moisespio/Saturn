@@ -156,7 +156,7 @@ class SensorModel: NSObject {
         
         if (PFInstallation.currentInstallation().isDirty()) {
             println("dirty installation")
-            return
+            return nil
         }
         
         query.whereKey("installation", equalTo:PFInstallation.currentInstallation())
